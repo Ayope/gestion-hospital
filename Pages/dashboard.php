@@ -12,84 +12,11 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title>N.A.M.A</title>
 </head>
+    <?php
+    include '../include/navbar.php';
+    include '../include/sidebar.php';
+    ?>
 
-<body class="m-0 p-0">
-    <nav class="navbar navbar-expand-lg navbar-light navColor d-flex justify-content-between px-4 vw-100"
-        style="background:#00b4ff ;">
-        <a class="navbar-brand" href="#"> <img src="./image/icon.png" alt="icon" width="120" height="50"> </a>
-        <ul class="navbar-nav ">
-            <li class="nav-item pt-sm-0 pt-3 ">
-                <a class="nav-link text-white" href="#"> <i class="bi bi-box-arrow-right text-white"></i><span
-                        class="ms-1 d-none d-md-inline d-sm-inline"> Log Out</span> </a>
-            </li>
-            &nbsp;
-            &nbsp;
-            <li class="nav-item text-white  d-none d-lg-block">
-                <button class="btn button fw-bold" href="#" style="border: solid #fcfafd;
-                        border-width: 1px;
-                        border-radius: 20px;
-                        color: #ffffff;">
-                    <i class="bi bi-person-fill text-white "></i><span
-                        class="ms-1 d-none d-md-inline d-sm-inline">Administrateur</span></a>
-            </li>
-        </ul>
-    </nav>
-    <div class="row overflow-auto">
-        <div class="col-sm-3 col-xl-2 col-2 px-sm-2 px-0 bg-white d-flex shadow text-black fw-bold overflow-scroll">
-            <div
-                class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100 ms-4 sticky-top">
-                <a href="/"
-                    class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-black text-decoration-none">
-                    <span class="fs-5 d-none d-lg-block ps-3" style="color: #00b4ff;">N.A.M.A</span>
-                </a>
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-black"
-                    id="menu" role="navigation">
-                    <li class="nav-item d-none d-lg-block">
-                        <div class=" border-1 rounded-circle px-2">
-                            <img class="rounded-circle shadow" src="./image/user.jpg" alt="user" width="100"
-                                height="100">
-                        </div>
-                    </li>
-                    <li class="nav-item d-none d-lg-block">
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <i class="bi bi-envelope"></i><span
-                                class="ms-1 d-none d-lg-inline fw-normal">email.address</span>
-                        </a>
-                    </li>
-                    <br>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <i class="bi bi-speedometer"></i> &nbsp; &nbsp;<span
-                                class="ms-1 d-none d-lg-inline">Dashboard</span>
-                        </a>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <img src="./image/doctors.png" alt="doctors" width="20" height="20"> &nbsp; &nbsp;<span
-                                class="ms-1 d-none d-lg-inline">Doctors</span></a>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <img src="./image/patient.png" alt="patient" width="20" height="20"> &nbsp; &nbsp;<span
-                                class="ms-1 d-none d-lg-inline">Patient</span></a>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <i class="bi bi-journal-medical"></i> &nbsp; &nbsp;<span
-                                class="ms-1 d-none d-lg-inline">Session</span></a>
-                    </li>
-                    <br>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2 text-black">
-                            <i class="bi bi-person-lines-fill"></i> &nbsp; &nbsp;<span
-                                class="ms-1 d-none d-lg-inline">Parametre</span> </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="col-10 d-flex flex-column h-100 mt-3">
             <div class="container-fluid d-inline">
                 <div class="input-group d-flex justify-content-between row">
@@ -270,6 +197,8 @@
 
         </div>
     </main>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
