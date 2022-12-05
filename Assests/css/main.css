@@ -1,0 +1,51 @@
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    
+    }
+
+    /* scrolls */
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+        ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+        ::-webkit-scrollbar-thumb {
+        background: #555; 
+          border-radius:10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        
+        background: rgb(43, 14, 148); 
+      } 
+      
+      /*  */
+      /* *{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      } */
+      
+
+
+    /* btn color */
+    .btn-bg{
+        background: #0A76D8;
+    }
+
+
+    
+    .image-div{
+       background-image: url(notfound.svg);
+
+    }
+
+
+    .marginbtn{
+        margin-bottom: 10px;
+        background-color: #7a7ce242 ;
+    }
