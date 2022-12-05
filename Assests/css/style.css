@@ -1,0 +1,33 @@
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #00b4ff;
+  border-radius: 50px;
+}
+  .table-wrapper-scroll-y {
+  display: block;
+  
+  }
+    
+  .btn-bg{
+      background: #00b4ff;
+  }
+  .image-div{
+     background-image: url();
+
+  }
+  .my-custom-scrollbar {
+    position: relative;
+    height: 250px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
