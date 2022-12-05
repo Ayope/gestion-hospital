@@ -12,13 +12,14 @@
     <!-- Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
+
 </head>
-<body > 
+<body style="height: 100vh; background-image: url('assets/images/bg01.jpg'); background-size: cover;"> 
     
-    <header > 
+    <header> 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand ms-3 text-white" href="#">testing git workflow</a>
+                <a class="navbar-brand ms-3 text-white" href="#">N.A.M.A</a>
 
                 <div class="d-flex ms-3">
                     <a class="pe-5 text-decoration-none text-white" href="login.php">Log in</a>
