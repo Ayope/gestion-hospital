@@ -1,5 +1,5 @@
 
-<?php include "./scriptPhp/script.php"?>
+<?php include "./Controllers/script.php"?>
 <!DOCTYPE html>
 <html lang="en">
 
