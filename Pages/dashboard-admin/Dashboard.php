@@ -22,7 +22,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <link href="/Assests/css/main.css" rel="stylesheet">
+    <link href="../../Assests/css/main.css" rel="stylesheet">
 
 </head>
 
@@ -35,7 +35,7 @@
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="/Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
 
@@ -45,19 +45,25 @@
                     class=" list-group-item list-group-item-action bg-transparent second-text-color active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </button>
+                <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnBook"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-heart-pulse-fill me-2"></i>Doctors
                 </button>
-
+                </a>
+                <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-alarm-fill me-2"></i>Schedule
                 </button>
+                </a>
+                <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-telephone-inbound-fill me-2"></i>Appointment
                 </button>
+                </a>
+                <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-bandaid-fill me-2"></i>Patients
@@ -259,8 +265,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/scripts/login.js"></script>
-    <script src="/Assests/js/main.js"></script>
+    <script src="../../Assests/js/main.js"></script>
 
 </body>
 
