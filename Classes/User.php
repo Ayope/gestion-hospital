@@ -67,6 +67,25 @@ class Session {
        $this->role=$role;
 
      }
+   public function login($email,$password){
 
-    
+   }
+   public function logOut(){
+
+   }
+   public function createUser($user){
+
+   }
+   public function updateUser($user){
+
+   }
+   public function deleteUser($id){
+
+   }
+   public function getById($id){
+
+   }
+   public function count($table){
+
+   }
 }
