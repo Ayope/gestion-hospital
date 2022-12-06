@@ -1,5 +1,12 @@
+<?php
+    // include 'Classes\dbcon1.php';
+    include "./Controllers/script.php";
 
-<?php include "./Controllers/script.php"?>
+    // $database = new dbconnect();
+    // $db = $database->connect_pdo();                                            
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
