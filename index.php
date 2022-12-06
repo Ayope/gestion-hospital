@@ -14,6 +14,8 @@
 
 
 </head>
+<body>
+    
 <body style="height: 100vh; background-image: url('assets/images/bg01.jpg'); background-size: cover;"> 
     
     <header> 
