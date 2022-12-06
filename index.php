@@ -14,7 +14,7 @@
 
 
 </head>
-<body style="height: 100vh; background-image: url('assets/images/bg01.jpg'); background-size: cover;"> 
+<body style="height: 100vh; background-image: url('Assests/images/bg01.jpg'); background-size: cover;"> 
     
     <header> 
         <nav class="navbar navbar-expand-lg">
