@@ -4,6 +4,7 @@ body{
     background-color: #f6f7fa;
     font-weight: bolder;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
 :root {
@@ -129,4 +130,3 @@ body{
       } 
 
 
-      body {  /* Hide vertical scrollbar */ overflow-x: hidden; }

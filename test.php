@@ -1,9 +1,9 @@
 <?php
-    include 'Classes\dbcon1.php';
-    include "./Controllers/script.php"
+    // include 'Classes\dbcon1.php';
+    include "./Controllers/script.php";
 
-    $database = new dbconnect();
-    $db = $database->connect_pdo();
+    // $database = new dbconnect();
+    // $db = $database->connect_pdo();                                            
 
 ?>
 
