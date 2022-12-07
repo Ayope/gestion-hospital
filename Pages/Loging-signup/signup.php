@@ -10,11 +10,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link href="assets/css/main.css" rel="stylesheet"/>
-    <link href="assets/css/parsley.css" rel="stylesheet"/>
+    <link href="../../Assests/css/main.css" rel="stylesheet"/>
+    <link href="../../Assests/css/parsley.css" rel="stylesheet"/>
     
 </head>
-<body style="background-image: url('assets/images/bg01.jpg'); background-size: cover;">
+<body style="background-image: url('../../Assests/images/bg01.jpg'); background-size: cover;">
 
     <div class="d-flex justify-content-center align-items-center my-4" style="height: 100vh;">    
         <form action="" method="POST" id="form" data-parsley-validate class="border bg-white rounded px-5 py-4">
@@ -69,8 +69,8 @@
 
     </div>
 
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/parsley.js"></script>
+    <script src="../../Assests/js/jquery.js"></script>
+    <script src="../../Assests/js/parsley.js"></script>
 
     <script>
         $('#form').parsley();

@@ -38,7 +38,6 @@
                     <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <button type="button" id="btnDash"
