@@ -68,6 +68,26 @@ class Session {
 
      }
    public function login($email,$password){
+    global $bdd;
+      $sql="SELECT email ,password  from user where email = $email";
+      $result = $bdd->query($sql);
+      $numRows = $result->num_rows;
+      if ($numRows > 0){
+        $row = $result->fetch_assoc();
+          // settign the values of the attributes
+          if($password == row['password']){
+          $_SESSION['USER_ID'];
+          $_SESSION['ROLE'];
+          }
+          
+      
+      }else{
+        // alert email invalide
+      }
+
+      
+
+
 
    }
    public function logOut(){

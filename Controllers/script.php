@@ -1,6 +1,8 @@
 <?php
 //INCLUDE DATABASE FILE
 include "../Classes/Session.php";
+include "../Classes/User.php";
+
 //ROUTING
 
 if (isset($_POST['save_session']))        saveSession();
