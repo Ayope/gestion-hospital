@@ -75,7 +75,7 @@ class Session {
       if ($numRows > 0){
         $row = $result->fetch_assoc();
           // settign the values of the attributes
-          if($password == row['password']){
+          if(password_verify($password, $row->password)){
           $_SESSION['USER_ID'];
           $_SESSION['ROLE'];
           }
@@ -86,21 +86,41 @@ class Session {
         // alert email invalide
       }
 
-      
-
-
 
    }
    public function logOut(){
+    // unset sessions
+    unset($_SESSION['USER_ID']);
+    unset($_SESSION['ROLE']);
+    // get back to index
+    header('location: index.php');
 
    }
-   public function createUser($user){
+   public function createUser($firstName , $lastName , $email,$password,$icon,$role){
+    // globaling conn
+    global $bdd;
+    // req sql
+    $sql = "INSERT INTO `user`(`firstName`, `lastName`, `email`, `password`, `icon`, `role`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role')";
+    $result = mysqli_query($conn,$sql);
+    // session msg
+    $_SESSION['message'] = "User has been add!";
+    // get back to dashboard
+    header('location: dashboard.php');
 
    }
    public function updateUser($user){
 
+
    }
    public function deleteUser($id){
+    // globaling conn
+    global $bdd;
+    // requette sql to delete
+    $sql = "DELETE FROM `user` WHERE id = $id";
+    $result = mysqli_query($conn,$sql);
+    //session
+    $_SESSION['message'] = "User has been Deleted!";
+
 
    }
    public function getById($id){
