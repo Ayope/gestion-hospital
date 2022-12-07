@@ -1,21 +1,22 @@
 <?php
-include ("../config/db.php");
-class Session {
+class User {
 	//les attributes d'une session
 	protected $id;
 	protected $firstName;
 	protected $lastName;
 	protected $email;
 	protected $password;
+    protected $NumeroTelephone;
 	protected $icon;
     protected $role;
 
     //constructeur:
-	protected function __construct($firstName,$lastName,$email,$password,$icon,$role) {
+	protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
 		$this->firstName= $firstName;
 		$this->lastName= $lastName;
 		$this->email=$email;
 		$this->password= $password;
+        $this->NumeroTelephone= $NumeroTelephone;
 		$this->icon= $icon;
         $this->role= $role;
 	}
@@ -96,32 +97,41 @@ class Session {
     header('location: index.php');
 
    }
-   public function createUser($firstName , $lastName , $email,$password,$icon,$role){
-    // globaling conn
+   public function createUser($user){
     global $bdd;
-    // req sql
-    $sql = "INSERT INTO `user`(`firstName`, `lastName`, `email`, `password`, `icon`, `role`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role')";
-    $result = mysqli_query($conn,$sql);
-    // session msg
-    $_SESSION['message'] = "User has been add!";
-    // get back to dashboard
-    header('location: dashboard.php');
-
+    $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
+    $req->bindParam(':firstName', $user->firstName);
+    $req->bindParam(':lastName',$user->lastName);
+    $req->bindParam(':email',$user->email);
+    $req->bindParam(':password',$user->password);
+    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
+    $req->bindParam(':icon',$user->icon);
+    $req->bindParam(':role',$user->role);
+    $userI=$req->execute();
+    return ($userI);
    }
    public function updateUser($user){
-
-
+    global $bdd;
+    $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role")or die(print_r($bdd-> errorInfo()));
+    $req->bindParam(':firstName', $user->firstName);
+    $req->bindParam(':lastName',$user->lastName);
+    $req->bindParam(':email',$user->email);
+    $req->bindParam(':password',$user->password);
+    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
+    $req->bindParam(':icon',$user->icon);
+    $req->bindParam(':role',$user->role);
+    $userU=$req->execute();
+    return ($userU);
    }
    public function deleteUser($id){
-    // globaling conn
+     
+   }
+   public function getUserByEmail($email){
     global $bdd;
-    // requette sql to delete
-    $sql = "DELETE FROM `user` WHERE id = $id";
-    $result = mysqli_query($conn,$sql);
-    //session
-    $_SESSION['message'] = "User has been Deleted!";
-
-
+    $req = $bdd->prepare('SELECT * FROM user WHERE email = :email')or die(print_r($bdd-> errorInfo()));
+    $req->bindParam(':email',$email);
+    $user = $req->execute();
+      return ($user);
    }
    public function getById($id){
 
