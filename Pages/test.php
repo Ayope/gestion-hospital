@@ -1,5 +1,5 @@
 
-<?php include "./Controllers/script.php"?>
+<?php include "../Controllers/SessionController.php"?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <form class="container-fluid" method="post" action="./scriptPhp/script.php">
+  <form class="container-fluid" method="post" action="../Controllers/SessionController.php">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">dateDebut</label>
       <input type="date" class="form-control" id="dateDebut" name="dateDebut">
@@ -42,12 +42,12 @@
     <button type="submit" class="btn btn-primary" name="save_session">Submit</button>
   </form>
   <?php getSession() ?>
-  <?php include "./Pages/SessionModal.php" ?>
+  <?php include "SessionModal.php" ?>
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- BS JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
- <script src="./Assests/js/Session.js"></script>
+ <script src="../Assests/js/Session.js"></script>
 </body>
 
 </html>
