@@ -89,10 +89,12 @@ class User{
         $_SESSION['ID']= $row['id'];
         $_SESSION['ROLE']= $row['role'];
 
-        if($_SESSION['ROLE']="admin"){
+        if($_SESSION['ROLE']=="admin"){
           header('location: ../Pages/dashboard-admin/Dashboard.php');
-
-          
+        }elseif($_SESSION['ROLE']=="doc"){
+          header('location: ../Pages/Dashboard-doctor/dashboard.php');
+        }elseif($_SESSION['ROLE']=="pat"){
+          header('location: ../Pages/Dashboard-patient/dashboard.php');
         }
 
   
