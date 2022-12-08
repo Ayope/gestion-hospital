@@ -6,7 +6,7 @@ class User {
 	protected $lastName;
 	protected $email;
 	protected $password;
-    protected $NumeroTelephone;
+  protected $NumeroTelephone;
 	protected $icon;
   protected $role;
 
@@ -112,7 +112,7 @@ class User {
    }
    public function updateUser($user){
     global $bdd;
-    $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role")or die(print_r($bdd-> errorInfo()));
+    $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role WHERE id=:ID")or die(print_r($bdd-> errorInfo()));
     $req->bindParam(':firstName', $user->firstName);
     $req->bindParam(':lastName',$user->lastName);
     $req->bindParam(':email',$user->email);
@@ -120,6 +120,7 @@ class User {
     $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
     $req->bindParam(':icon',$user->icon);
     $req->bindParam(':role',$user->role);
+    $req->bindParam(':ID',$user->id);
     $userU=$req->execute();
     return ($userU);
    }
