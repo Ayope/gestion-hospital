@@ -4,8 +4,9 @@
     include "./doctor.php";
 
     function addDoctor(){
+        // should create user first before doctor 
         $database = new dbconnect();
-        $db = $database->connect_pdo();
+        $db = $database->connect_pdo(); //PDO Object
 
         $city = $_POST['city'];
         $prof = $_POST['prof'];
@@ -19,10 +20,10 @@
         $db->exec($sql);
 
         if($sql){
-            echo "done";
+            echo "done inserting data";
             die();
         }else{
-            echo "error";
+            echo "error inserting data";
             die();
         }
     }
@@ -30,11 +31,6 @@
     if(isset($_POST['submit'])){
         addDoctor();
     }
-
-
-
-    
-
 
 ?>
 
