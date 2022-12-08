@@ -22,8 +22,8 @@
                 <a class="navbar-brand ms-3 text-white" href="#">N.A.M.A</a>
 
                 <div class="d-flex ms-3">
-                    <a class="pe-5 text-decoration-none text-white" href="Pages/loging-signup/login.php">Log in</a>
-                    <a class="pe-3 text-decoration-none text-white" href="signup.php">Register</a>
+                    <a class="pe-5 text-decoration-none text-white" href="Loging-signup/login.php">Log in</a>
+                    <a class="pe-3 text-decoration-none text-white" href="Loging-signup/signup.php">Register</a>
                 </div>
             </div>
         </nav>
