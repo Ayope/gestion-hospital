@@ -106,7 +106,28 @@ class User{
    
 
    }
+
+
+   public static function signUp($firstName,$lastName,$email,$password,$icon,$role,$NumeroTelephone){
+    $database = new dbconnect();
+    $db = $database->connect_pdo(); 
+    $stmt= $db->prepare("SELECT * from user where email = '$email'");
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if(!$row){
+      $stmt = $db->prepare("INSERT INTO userdata (`firstName`, `lastName`, `email`, `password`, `icon`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role','$NumeroTelephone')");
+      $stmt->execute();
+    
+
+
+
+    }else{
+      echo "email alredy exist!";
+    }
+
+   }
    public function logOut(){
+    
    
 
    }
