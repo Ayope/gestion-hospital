@@ -2,7 +2,7 @@
     // include 'Classes\dbcon1.php';
     // include "./Controllers/script.php";
 
-    // $database = new dbconnect();
+    // $database = new disconnect();
     // $db = $database->connect_pdo();                                            
 ?>
 

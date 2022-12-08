@@ -8,7 +8,7 @@ class User {
 	protected $password;
     protected $NumeroTelephone;
 	protected $icon;
-    protected $role;
+  protected $role;
 
     //constructeur:
 	protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
@@ -18,11 +18,11 @@ class User {
 		$this->password= $password;
         $this->NumeroTelephone= $NumeroTelephone;
 		$this->icon= $icon;
-        $this->role= $role;
+    $this->role= $role;
 	}
 
-    //les getters et setters:
-    protected function getId() {
+  //les getters et setters:
+  protected function getId() {
 		return $this->id;
 	}
 	protected function setId($id) {

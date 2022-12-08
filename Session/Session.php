@@ -70,7 +70,7 @@ class Session {
 		$req->bindParam(':codeDoctor',$session->codeDoctor);
 		$sessionI=$req->execute();
 		return ($sessionI);
-      }
+    }
 
 	  //Modifier session
 	  public static function update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor) {
