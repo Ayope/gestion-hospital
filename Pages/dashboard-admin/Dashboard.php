@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!$_SESSION['ROLE']){
+    header('location: ../../index.php');
+
+    
+}
  
 ?>
 <!DOCTYPE html>
@@ -67,7 +73,7 @@
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-bandaid-fill me-2"></i>Patients
                 </button>
-                <a href="assets/backend/sessionLogOut.php"
+                <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>

@@ -1,5 +1,8 @@
 <?php
-class User {
+include "../Config/db.php";
+session_start();
+
+class User{
 	//les attributes d'une session
 	protected $id;
 	protected $firstName;
@@ -11,15 +14,15 @@ class User {
   protected $role;
 
     //constructeur:
-	protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
-		$this->firstName= $firstName;
-		$this->lastName= $lastName;
-		$this->email=$email;
-		$this->password= $password;
-        $this->NumeroTelephone= $NumeroTelephone;
-		$this->icon= $icon;
-    $this->role= $role;
-	}
+	// protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
+	// 	$this->firstName= $firstName;
+	// 	$this->lastName= $lastName;
+	// 	$this->email=$email;
+	// 	$this->password= $password;
+  //       $this->NumeroTelephone= $NumeroTelephone;
+	// 	$this->icon= $icon;
+  //   $this->role= $role;
+	// }
 
   //les getters et setters:
   protected function getId() {
@@ -61,40 +64,48 @@ class User {
        $this->icon=$icon;
 
      }
-    protected function getRole() {
+  protected function getRole() {
 		return $this->role;
 	}
 	protected function setRole($role) {
        $this->role=$role;
-
      }
-   public function login($email,$password){
-    global $bdd;
-      $sql="SELECT email ,password  from user where email = $email";
-      $result = $bdd->query($sql);
-      $numRows = $result->num_rows;
-      if ($numRows > 0){
-        $row = $result->fetch_assoc();
-          // settign the values of the attributes
-          if(password_verify($password, $row->password)){
-          $_SESSION['USER_ID'];
-          $_SESSION['ROLE'];
-          }
-          
-          
-      
-      }else{
-        // alert email invalide
-      }
 
+  public static  function login($email,$password){
+    $database = new dbconnect();
+    $db = $database->connect_pdo();
+    $stmt= $db->prepare("SELECT * from user where email = '$email'");
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if(!$row){
+      
+    echo 'email wrong';
+
+
+
+    }
+    else{
+      if($row['password']==$password){
+        $_SESSION['ID']= $row['id'];
+        $_SESSION['ROLE']= $row['role'];
+
+        if($_SESSION['ROLE']="admin"){
+          header('location: ../Pages/dashboard-admin/Dashboard.php');
+
+          
+        }
+
+  
+  
+       }else{
+        echo "password wrong";
+       } 
+    }
+   
 
    }
    public function logOut(){
-    // unset sessions
-    unset($_SESSION['USER_ID']);
-    unset($_SESSION['ROLE']);
-    // get back to index
-    header('location: index.php');
+   
 
    }
    public function createUser($user){
