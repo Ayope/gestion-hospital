@@ -6,7 +6,7 @@
                 <img type="button" class="close" data-dismiss="modal" aria-label="Close" src="image/close.png" alt="close" height="30" width="30">
             </div>
             <div class="modal-body ">
-                <form action="./scriptPhp/script.php" method="POST" id="third" class="d-flex justify-content-between pe-5">
+                <form action="../Controllers/SessionController.php" method="POST" id="third" class="d-flex justify-content-between pe-5">
                     <div class="fw-bold">
                         <div id="hidden"></div>
                         <div class="mb-3">
