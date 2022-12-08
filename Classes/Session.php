@@ -66,7 +66,7 @@ class Session {
 		$req = $bdd->prepare("INSERT INTO session(dateDebut,dateFin,title,maxNumber,codeDoctor)VALUES(:dateDebut,:dateFin,:title,:maxNumber,:codeDoctor)")or die(print_r($bdd-> errorInfo()));
 		$sessionI=$req->execute(array(':dateDebut'=> $session->dateDebut,':dateFin'=> $session->dateFin,':title'=> $session->title,':maxNumber'=> $session->maxNumber,':codeDoctor'=> $session->codeDoctor));
 		return ($sessionI);
-      }
+    }
 
 	  //Modifier session
 	  public static function update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor) {

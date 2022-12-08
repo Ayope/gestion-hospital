@@ -42,7 +42,7 @@ function getSession(){
 function saveSession()
 {
     //CODE HERE
-  
+    
     //SQL INSERT   
     if (isset($_POST["title"]) && isset($_POST["dateDebut"]) && isset($_POST["dateFin"]) && isset($_POST["maxNumber"]) && isset($_POST["codeDoctor"]) ) {
         $title = test_input($_POST["title"]);

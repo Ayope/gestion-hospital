@@ -1,6 +1,6 @@
 <?php
-include ("../config/db.php");
-class Session {
+
+class User {
 	//les attributes d'une session
 	protected $id;
 	protected $firstName;
@@ -8,20 +8,20 @@ class Session {
 	protected $email;
 	protected $password;
 	protected $icon;
-    protected $role;
+  protected $role;
 
-    //constructeur:
+  //constructeur:
 	protected function __construct($firstName,$lastName,$email,$password,$icon,$role) {
 		$this->firstName= $firstName;
 		$this->lastName= $lastName;
 		$this->email=$email;
 		$this->password= $password;
 		$this->icon= $icon;
-        $this->role= $role;
+    $this->role= $role;
 	}
 
-    //les getters et setters:
-    protected function getId() {
+  //les getters et setters:
+  protected function getId() {
 		return $this->id;
 	}
 	protected function setId($id) {
