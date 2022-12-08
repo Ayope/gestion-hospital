@@ -10,15 +10,25 @@ function logIn(){
 
     $email = $_POST['email'];
     $password = $_POST['password'];
-    echo User::login($email,$password);
+     User::login($email,$password);
 
     
 }
 
 
 function signUp(){
+    $firstName = $_POST['firstname'];
+    $lastName = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $icon = $_POST['icon'];
+    $role = "pat";
+    $NumeroTelephone = $_POST['number'];
+
+
    
 
+    User::signUp($firstName,$lastName,$email,$password,$icon,$role,$NumeroTelephone );
 
 }
 

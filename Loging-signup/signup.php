@@ -48,7 +48,7 @@ include '../Classes/user/userScript.php';
 
             <div class="pb-3">
                 <label for="email_inpt" id="emaiLabel">Your picture</label>
-                <input type="file"  class="form-control" name="icon" data-parsley-type="email"	required>
+                <input type="file"  class="form-control" name="icon" required>
             </div>
 
             <div class="pb-3">

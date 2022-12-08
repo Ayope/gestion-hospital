@@ -115,7 +115,7 @@ class User{
     $stmt->execute();
     $row = $stmt->fetch();
     if(!$row){
-      $stmt = $db->prepare("INSERT INTO userdata (`firstName`, `lastName`, `email`, `password`, `icon`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role','$NumeroTelephone')");
+      $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `icon`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role','$NumeroTelephone')");
       $stmt->execute();
     
 
