@@ -1,11 +1,10 @@
-
-<div class="row overflow-auto mt-0">
-        <div  class="col-sm-3 col-xl-2 col-2 px-sm-2 px-0 bg-white d-flex  text-black fw-bold overflow-auto vh-100 ms-2"  >
+<div class="row overflow-auto">
+        <div class="col-sm-3 col-xl-2 col-2 px-sm-2 px-0 bg-white d-flex shadow text-black fw-bold overflow-auto vh-100 " >
             <div id="leftCol" 
-                class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black h-100 rounded-3 border-top shadow "style="overflow-y: scroll;width:15%">
+                class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black ms-4 h-100 "style="overflow-y: scroll;">
                 <a href="/"
-                    class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-black text-decoration-none">
-                    <span class="fs-5 d-none d-lg-inline text-black ps-3">N.A.M.A</span>
+                    class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-decoration-none">
+                    <span class="fs-5 d-none d-lg-inline ps-3"  style="color: #00b4ff;">N.A.M.A</span>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-black"
                     id="menu" role="navigation">

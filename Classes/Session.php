@@ -1,5 +1,4 @@
 <?php
-include ("../config/db.php");
 class Session {
 	//les attributes d'une session
 	private $id;
@@ -64,27 +63,36 @@ class Session {
 	public static function create($session) {
 		global $bdd;
 		$req = $bdd->prepare("INSERT INTO session(dateDebut,dateFin,title,maxNumber,codeDoctor)VALUES(:dateDebut,:dateFin,:title,:maxNumber,:codeDoctor)")or die(print_r($bdd-> errorInfo()));
-		$sessionI=$req->execute(array(':dateDebut'=> $session->dateDebut,':dateFin'=> $session->dateFin,':title'=> $session->title,':maxNumber'=> $session->maxNumber,':codeDoctor'=> $session->codeDoctor));
+		$req->bindParam(':dateDebut', $session->dateDebut);
+		$req->bindParam(':dateFin',$session->debutFin);
+		$req->bindParam(':title',$session->title);
+		$req->bindParam(':maxNumber',$session->maxNumber);
+		$req->bindParam(':codeDoctor',$session->codeDoctor);
+		$sessionI=$req->execute();
 		return ($sessionI);
     }
 
 	  //Modifier session
 	  public static function update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor) {
 		global $bdd;
-
+		
 		$req = $bdd->prepare("UPDATE session SET dateDebut =:dateDebut, dateFin = :dateFin ,title = :title, maxNumber = :maxNumber, codeDoctor = :codeDoctor  WHERE id =:ID")or die(print_r($bdd-> errorInfo()));
-
-		$sessionU=$req->execute(array(':dateDebut'=> $dateDebut,':dateFin'=> $dateFin,':title'=> $title,':maxNumber'=> $maxNumber,':codeDoctor'=> $codeDoctor,':ID'=>$id));
-
+		$req->bindParam(':dateDebut', $dateDebut);
+		$req->bindParam(':dateFin',$dateFin);
+		$req->bindParam(':title',$title);
+		$req->bindParam(':maxNumber',$maxNumber);
+		$req->bindParam(':codeDoctor',$codeDoctor);
+		$req->bindParam(':ID',$id);
+		$sessionU=$req->execute();
       	return ($sessionU);
       }
 
 	 //Suppression d'une session
 	  public static function delete($ID) {
 		global $bdd;
-		$req = $bdd->prepare('Delete FROM session WHERE id = ?')or die(print_r($bdd-> errorInfo()));
-		$sessionD = $req->execute(array($ID));
-
+		$req = $bdd->prepare('Delete FROM session WHERE id = :id')or die(print_r($bdd-> errorInfo()));
+		$req->bindParam(':id',$ID);
+		$sessionD = $req->execute();
       	return ($sessionD);
     }
      //Rechecrher une session
