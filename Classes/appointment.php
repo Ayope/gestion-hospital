@@ -1,5 +1,5 @@
 <?php
-include "../config/db.php";
+
 
 class Appointment{
     //les atributs d'appointment
@@ -9,7 +9,7 @@ class Appointment{
     private $codePatient; 
     private $date; //date appointment
     
-    public function __construct($des,$cs,$cp,$date){
+    public function __construct($des,$date){
         $this->description=$des;
         $this->codeSession=$cs;
         $this->codePatient=$cp;
@@ -49,17 +49,22 @@ class Appointment{
 
 //create Appointment
 /**
- * @param array  
- * @return bool
+ * @param array  for insert data appointment in database
+ * @return bool 
   */
-    public function create($appointment){
+    public static function create($appointment){
         global $bdd;
-        $sql=$bdd->prepare("INSET INTO appointement(description,dateA,codePatient,codeSession) VALUE(:description,:dateA,:codePatient,:codeSession)") or die(print_r($bdd->errorInfo()));
+        $sql=$bdd->prepare("INSET INTO appointement(description,dateA) VALUE (:description,:dateA)") or die(print_r($bdd->errorInfo()));
+        $app=$req->execute(array(':description'=>$appointment->description,':dateA'=>$appointment->date));
+        return $app;
+    } 
+  // fetch data from database  
+    public static function fetchById($Id){
+        global $bdd;
+        $sql=$bdd->prepare("SELECT * FROM appointment(description,dateA,codePatient,codeSession) WHERE id.appointment=".$Id);
         $app=$req->execute(array(':description'=>$appointment->description,':dateA'=>$appointment->date,':codePatient'=>$appointment->codePatient,':codeSession'=>$appointment->codeSession));
         return $app;
     } 
-    
-
 }
 
 

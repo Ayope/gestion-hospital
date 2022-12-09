@@ -1,12 +1,11 @@
 <?php
   
-    include "./classes/appointment.php";                                          
-
+    include "/Controllers/script.php";
+    
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,30 +22,16 @@
 </head>
 
 <body>
-    <form class="container-fluid" method="post" action="./scriptPhp/script.php">
+    <form class="container-fluid" method="post" action="">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">dateDebut</label>
-            <input type="date" class="form-control" id="dateDebut" name="dateDebut">
+            <label for="exampleInputEmail1" class="form-label">description</label>
+            <input type="text" class="form-control" id="dateDebut" name="description">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">dateFin</label>
-            <input type="date" class="form-control" id="dateFin" name="dateFin">
+            <label for="exampleInputEmail1" class="form-label">date</label>
+            <input type="date" class="form-control" id="dateFin" name="date">
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">title</label>
-            <input type="text" class="form-control" id="title" name="title">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">max number</label>
-            <input type="number" class="form-control" id="maxNumber" name="maxNumber">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">doctor</label>
-            <select class="form-select form-select-sm ms-5 cart shadow-sm" name="codeDoctor" id="codeDoctor">
-                <option value="1">doctor 1</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary" name="save_session">Submit</button>
+        <button type="submit" class="btn btn-primary" name="save_apoointment">Submit</button>
     </form>
 
 
