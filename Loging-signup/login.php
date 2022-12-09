@@ -1,3 +1,25 @@
+<?php
+include '../Classes/user/userScript.php';
+
+
+
+if(isset($_SESSION['ROLE'])){
+
+    if($_SESSION['ROLE']=="admin"){
+        header('location: ../Pages/dashboard-admin/Dashboard.php');
+      }elseif($_SESSION['ROLE']=="doc"){
+        header('location: ../Pages/Dashboard-doctor/dashboard.php');
+      }elseif($_SESSION['ROLE']=="pat"){
+        header('location: ../Pages/Dashboard-patient/dashboard.php');
+      }
+else{
+
+}
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +30,28 @@
 
     <!-- Bootstrap classes -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="../../Assests/css/main.css" rel="stylesheet"/> 
-    <link href="../../Assests/css/parsley.css" rel="stylesheet"/>
+    <link href="../Assests/css/main.css" rel="stylesheet"/> 
+    <link href="../Assests/css/parsley.css" rel="stylesheet"/>
     <!-- Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
 
 </head>
-<body style="height: 100vh; background-image: url('../../Assests/images/bg01.jpg'); background-size: cover;">
+<body style="height: 100vh; background-image: url('../Assests/images/bg01.jpg'); background-size: cover;">
     
-    <div class="d-flex justify-content-center align-items-center h-100" >    
+    <div class="d-flex justify-content-center align-items-center h-100" >   
+    
         <form id="form" action="" method="POST" data-parsley-validate class="border bg-white rounded px-5 py-3">
-            
+        <?php if (isset($_SESSION['message'])): ?>
+				<div class="alert alert-danger alert-dismissible fade show">
+				<strong>Ooups !</strong>
+					<?php 
+						echo $_SESSION['message']; 
+						unset($_SESSION['message']);
+					?>
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+				</div>
+			<?php endif ?> 
         <div class="text-center mb-4">
             <h3 id="title">Welcome Back!</h3>
             <p class="text-muted fw-light">You can log in here !</p>

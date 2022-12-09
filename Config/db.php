@@ -9,10 +9,6 @@ class dbconnect{
     private $password = "";
     private $conn;
 
-    public function gethost(){
-        return $this->host;
-    } 
-
     //methods
     function connect_pdo(){
         try{
