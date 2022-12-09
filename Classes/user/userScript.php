@@ -21,14 +21,13 @@ function signUp(){
     $lastName = $_POST['lastname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $icon = $_POST['icon'];
     $role = "pat";
     $NumeroTelephone = $_POST['number'];
 
 
    
 
-    User::signUp($firstName,$lastName,$email,$password,$icon,$role,$NumeroTelephone );
+    User::signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone );
 
 }
 

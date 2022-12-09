@@ -78,8 +78,8 @@ class User{
     $stmt->execute();
     $row = $stmt->fetch();
     if(!$row){
-      
-    echo 'email wrong';
+
+      $_SESSION['message'] = "Email Is not valid !";
 
 
 
@@ -89,7 +89,7 @@ class User{
         $_SESSION['ID']= $row['id'];
         $_SESSION['ROLE']= $row['role'];
 
-        if($_SESSION['ROLE']=="admin"){
+          if($_SESSION['ROLE']=="admin"){
           header('location: ../Pages/dashboard-admin/Dashboard.php');
         }elseif($_SESSION['ROLE']=="doc"){
           header('location: ../Pages/Dashboard-doctor/dashboard.php');
@@ -100,7 +100,7 @@ class User{
   
   
        }else{
-        echo "password wrong";
+        $_SESSION['message']="Password Wrong !";
        } 
     }
    
@@ -108,14 +108,14 @@ class User{
    }
 
 
-   public static function signUp($firstName,$lastName,$email,$password,$icon,$role,$NumeroTelephone){
+   public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
     $database = new dbconnect();
     $db = $database->connect_pdo(); 
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
     $row = $stmt->fetch();
     if(!$row){
-      $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `icon`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$icon','$role','$NumeroTelephone')");
+      $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$role','$NumeroTelephone')");
       $stmt->execute();
     
 
@@ -169,6 +169,10 @@ class User{
       return ($user);
    }
    public function getById($id){
+    $database = new dbconnect();
+    $db = $database->connect_pdo(); 
+
+
 
    }
    public function count($table){
