@@ -1,4 +1,5 @@
 <?php
+session_start();
 if($_SESSION['ROLE']!="pat"){
     header('location: ../../index.php');
 

@@ -35,7 +35,7 @@
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
 

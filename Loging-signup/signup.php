@@ -2,6 +2,20 @@
 <?php
 include '../Classes/user/userScript.php';
 
+
+if(isset($_SESSION['ROLE'])){
+
+if($_SESSION['ROLE']=="pat"){
+    header('location: Pages/Dashboard-patient/dashboard.php');   
+}elseif($_SESSION['ROLE']=="admin"){
+    header('location: Pages/dashboard-admin/dashboard.php');   
+}elseif($_SESSION['ROLE']=="doc"){
+    header('location: Pages/Dashboard-doctor/dashboard.php');   
+}else{
+
+}
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +60,7 @@ include '../Classes/user/userScript.php';
                 class="form-control" size="30" name="number" placeholder = "Number" required>
             </div>
 
-            <div class="pb-3">
-                <label for="email_inpt" id="emaiLabel">Your picture</label>
-                <input type="file"  class="form-control" name="icon" required>
-            </div>
+       
 
             <div class="pb-3">
                 <label for="email_inpt" id="emaiLabel">Email</label>

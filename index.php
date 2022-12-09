@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+
+if(isset($_SESSION['ROLE'])){
+
+if($_SESSION['ROLE']=="pat"){
+    header('location: Pages/Dashboard-patient/dashboard.php');   
+}elseif($_SESSION['ROLE']=="admin"){
+    header('location: Pages/dashboard-admin/dashboard.php');   
+}elseif($_SESSION['ROLE']=="doc"){
+    header('location: Pages/Dashboard-doctor/dashboard.php');   
+}else{
+
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,12 +46,12 @@
         </nav>
     </header>  
 
-    <main class="d-flex justify-content-center align-items-center" style="height:85vh">
+    <main class="d-flex justify-content-center align-items-center bg-bordbl" style="height:85vh " >
         <div class="text-center ">
             <h1 class="text-white">Éviter les problèmes et les retards.</h1>
-            <p>Comment est la santé aujourd'hui, on dirait qu'elle n'est pas bonne !</p>
-            <p>Ne vous inquiétez pas. Trouvez votre médecin en ligne Réservez comme vous le souhaitez avec N.A.M.A .</p>
-            <p>Nous vous offrons un service gratuit de canalisation de médecin, prenez votre rendez-vous maintenant.</p>
+            <p class="text-white">Comment est la santé aujourd'hui, on dirait qu'elle n'est pas bonne !</p>
+            <p class="text-white">Ne vous inquiétez pas. Trouvez votre médecin en ligne Réservez comme vous le souhaitez avec N.A.M.A .</p>
+            <p class="text-white">Nous vous offrons un service gratuit de canalisation de médecin, prenez votre rendez-vous maintenant.</p>
             <button class="rounded text-white p-2" style="border:none; background: #0a76d8;">Make Appointment</button>
         </div>
         <a class="position-absolute bottom-0 text-decoration-none text-white fw-light mb-3" href="#">N.A.M.A hopital</a>
