@@ -168,10 +168,8 @@ class User{
     $user = $req->execute();
       return ($user);
    }
-   public function getById($id){
-    $database = new dbconnect();
-    $db = $database->connect_pdo(); 
-
+   public static function getById(){
+   
 
 
    }
