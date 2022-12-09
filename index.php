@@ -21,13 +21,14 @@ if($_SESSION['ROLE']=="pat"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>NAMA Hopital</title>
 
     <!-- Bootstrap classes -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="Assests\css\main.css" rel="stylesheet"/> 
     <!-- Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="icon" href="./Assests/images/icont.png" type="image/png">
 
 
 </head>
@@ -36,7 +37,7 @@ if($_SESSION['ROLE']=="pat"){
     <header> 
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand ms-3 text-white" href="#">N.A.M.A</a>
+                <a class="navbar-brand ms-3 text-white" href="#">NAMA hopital</a>
 
                 <div class="d-flex ms-3">
                     <a class="pe-5 text-decoration-none text-white" href="Loging-signup/login.php">Log in</a>
@@ -54,7 +55,7 @@ if($_SESSION['ROLE']=="pat"){
             <p class="text-white">Nous vous offrons un service gratuit de canalisation de médecin, prenez votre rendez-vous maintenant.</p>
             <button class="rounded text-white p-2" style="border:none; background: #0a76d8;">Make Appointment</button>
         </div>
-        <a class="position-absolute bottom-0 text-decoration-none text-white fw-light mb-3" href="#">N.A.M.A hopital</a>
+        <a class="position-absolute bottom-0 text-decoration-none text-white fw-light mb-3" href="#">NAMA Hopital</a>
     </main>
 
 

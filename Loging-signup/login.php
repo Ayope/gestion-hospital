@@ -34,6 +34,7 @@ else{
     <link href="../Assests/css/parsley.css" rel="stylesheet"/>
     <!-- Icons -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="icon" href="../Assests/images/icont.png" type="image/png">
 
 
 </head>

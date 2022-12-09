@@ -32,7 +32,7 @@ else{
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="../Assests/css/main.css" rel="stylesheet"/>
     <link href="../Assests/css/parsley.css" rel="stylesheet"/>
-    
+    <link rel="icon" href="../Assests/images/icont.png" type="image/png">
 </head>
 <body style="background-image: url('../Assests/images/bg01.jpg'); background-size: cover;">
 
