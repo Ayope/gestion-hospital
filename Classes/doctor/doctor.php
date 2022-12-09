@@ -48,13 +48,13 @@
         //Doctor Crud
         public function createDoctor(){
             return  "INSERT INTO doctor (city, speciality, Gender, codeUser)
-                VALUES ('$this->city', '$this->profession', '$this->gender', $this->codeUser)";
+            VALUES ('$this->city', '$this->profession', '$this->gender', $this->codeUser)";
         }
-        public function readData(){
-
+        public static function readData(){
+            return "SELECT * FROM doctor";
         }
         public function updateDoctor($doctor){
-            
+            return "";
         }
         public function deleteDoctor($id){
 
