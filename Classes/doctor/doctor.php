@@ -54,7 +54,9 @@
             return "SELECT * FROM doctor";
         }
         public function updateDoctor($doctor){
-            return "";
+            return "UPDATE doctor 
+            SET city='?', speciality='?', Gender='?'
+            WHERE id='?'"; //<- Documentation 
         }
         public function deleteDoctor($id){
 
