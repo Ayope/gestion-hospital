@@ -1,6 +1,7 @@
 <?php
 include 'User.php'; 
 
+
 $user = new User;
 
 if(isset($_POST['login']))        logIn();
@@ -32,13 +33,15 @@ function signUp(){
 }
 
 function getById(){
-   
 
+    // User::getById();
+    // foreach ( User::getById() as $row) {
+    //     $name = $row['email'];
+    // }
 
 
 }
 
-$database = new dbconnect();
 
 
 

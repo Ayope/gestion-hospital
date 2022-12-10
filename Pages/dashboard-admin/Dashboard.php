@@ -1,11 +1,12 @@
 <?php
-session_start();
+// include '../../Config/db.php';
+include '../../Classes/user/userScript.php';
+// session_start();
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
     
 }
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">

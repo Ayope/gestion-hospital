@@ -1,5 +1,5 @@
 <?php
-include "../Config/db.php";
+include 'C:\xampp\htdocs\gestion-hospital\Config\db.php';
 session_start();
 
 class User{
@@ -122,7 +122,7 @@ class User{
 
 
     }else{
-      echo "email alredy exist!";
+      $_SESSION['message']="email alredy exist";
     }
 
    }
@@ -169,7 +169,12 @@ class User{
       return ($user);
    }
    public static function getById(){
-   
+    $database = new dbconnect();
+    $db = $database->connect_pdo();
+    $id = $_SESSION['ID'];
+    $req = $db->prepare(" SELECT * FROM user where id = '$id' ");
+    $res = $req->execute();
+    return $res;
 
 
    }
