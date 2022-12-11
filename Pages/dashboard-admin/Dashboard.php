@@ -1,7 +1,10 @@
 <?php
-// include '../../Config/db.php';
 include '../../Classes/user/userScript.php';
-// session_start();
+$info = User::getById();
+$countd = User::count("doc");
+$countp = User::count("pat") ;
+// $$countp = User::count("pat");
+
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
@@ -45,9 +48,9 @@ if($_SESSION['ROLE']!="admin"){
                     <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-  <h4><?php
-
-?></h4>
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <button type="button" id="btnDash"
@@ -129,7 +132,7 @@ if($_SESSION['ROLE']!="admin"){
                                 <i class="bi bi-heart-pulse-fill "> </i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countd['COUNT(role)'] ?> </span><br>
                                 <span>Doctors</span>
                             </div>
                         </button>
@@ -139,7 +142,7 @@ if($_SESSION['ROLE']!="admin"){
                                 <i class="bi bi-bandaid-fill "></i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countp['COUNT(role)'] ?> </span><br>
                                 <span>Patient</span>
                             </div>
                         </button>

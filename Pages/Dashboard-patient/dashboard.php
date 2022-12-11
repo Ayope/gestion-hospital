@@ -1,5 +1,6 @@
 <?php
-session_start();
+include '../../Classes/user/userScript.php';
+$info = User::getById();
 if($_SESSION['ROLE']!="pat"){
     header('location: ../../index.php');
 
@@ -44,7 +45,9 @@ if($_SESSION['ROLE']!="pat"){
                     <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+ <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" >

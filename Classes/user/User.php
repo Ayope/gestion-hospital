@@ -172,13 +172,20 @@ class User{
     $database = new dbconnect();
     $db = $database->connect_pdo();
     $id = $_SESSION['ID'];
-    $req = $db->prepare(" SELECT * FROM user where id = '$id' ");
-    $res = $req->execute();
-    return $res;
+    $stmt = $db->prepare("SELECT * FROM user where id = '$id' ");
+    $stmt->execute();
+    
+    
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 
 
    }
-   public function count($table){
+   public static function count($table){
+    $database = new dbconnect();
+    $db = $database->connect_pdo();
 
+    $stmt = $db->prepare("SELECT COUNT(role) FROM user WHERE role LIKE '%$table%'");
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
    }
 }
