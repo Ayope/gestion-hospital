@@ -1,6 +1,8 @@
 <?php
 include '../../Classes/user/userScript.php';
 $info = User::getById();
+$countd = User::count("doc");
+
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
@@ -117,14 +119,14 @@ if($_SESSION['ROLE']!="admin"){
                     <!--  -->
                     <div class="d-flex justify-content-between">
                     <div class="  px-1 py-2 d-flex justify-content-center justify-content-md-start">
-                        <strong class="fs-3">Add New Doctor</strong>
-                        <div class="">
+                        <strong class="fs-3">Add New Doctor  👉</strong>
+                        <div class="d-flex mx-4 justify-content-end">
                         <button class="btn btn-dark">ADD</button>
                         </div>
                     </div></div>
 
                     <div class="mt-4">
-                        <h4>All Doctors (2)</h4>
+                        <h4>All Doctors (<?php echo $countd['COUNT(role)'] ?>)</h4>
                     </div> 
 
                     <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
