@@ -126,11 +126,7 @@ class User{
     }
 
    }
-   public function logOut(){
-    
-   
 
-   }
    public function createUser($user){
     global $bdd;
     $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
