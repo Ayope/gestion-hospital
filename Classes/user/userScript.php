@@ -38,7 +38,7 @@ function getById(){
 
 }
 
-$database = new dbconnect();
+$database = new Dbconnect();
 
 
 

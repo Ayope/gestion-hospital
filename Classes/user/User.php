@@ -72,7 +72,7 @@ class User{
      }
 
   public static  function login($email,$password){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo();
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
@@ -108,24 +108,20 @@ class User{
    }
 
 
-   public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
-    $database = new dbconnect();
-    $db = $database->connect_pdo(); 
-    $stmt= $db->prepare("SELECT * from user where email = '$email'");
-    $stmt->execute();
-    $row = $stmt->fetch();
-    if(!$row){
-      $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$role','$NumeroTelephone')");
+  public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
+      $database = new Dbconnect();
+      $db = $database->connect_pdo(); 
+      $stmt= $db->prepare("SELECT * from user where email = '$email'");
       $stmt->execute();
-    
+      $row = $stmt->fetch();
+      if(!$row){
+        $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$role','$NumeroTelephone')");
+        $stmt->execute();
+      }else{
+        echo "email alredy exist!";
+      }
 
-
-
-    }else{
-      echo "email alredy exist!";
-    }
-
-   }
+  }
    public function logOut(){
     
    
