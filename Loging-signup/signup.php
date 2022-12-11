@@ -38,7 +38,16 @@ else{
 
     <div class="d-flex justify-content-center align-items-center my-4" style="height: 100vh;">    
         <form action="" method="POST" id="form" data-parsley-validate class="border bg-white rounded px-5 py-4 ">
-            
+        <?php if (isset($_SESSION['message'])): ?>
+				<div class="alert alert-danger alert-dismissible fade show">
+				<strong>Ooups !</strong>
+					<?php 
+						echo $_SESSION['message']; 
+						unset($_SESSION['message']);
+					?>
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+				</div>
+			<?php endif ?> 
             <div class="text-center">
                 <h1 id="title">SIGN UP</h1>
             </div>
