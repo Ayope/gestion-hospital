@@ -1,5 +1,5 @@
 <?php
-include "../Config/db.php";
+include "../../Config/db.php";
 session_start();
 
 class User{
