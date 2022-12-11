@@ -6,7 +6,7 @@
 
     function addDoctor(){
         // should create user first before doctor 
-        $database = new dbconnect();
+        $database = new Dbconnect;
         $db = $database->connect_pdo();//PDO Object
 
 
@@ -35,7 +35,7 @@
 
 
     function showDoc(){
-        $database = new dbconnect();
+        $database = new Dbconnect;
         $db = $database->connect_pdo();
 
         $sql = Doctor::readData();        
@@ -112,8 +112,6 @@
             $city = $_POST['city'];
             $speciality = $_POST['speciality'];
             $gender = $_POST['gender'];
-
-
         }
     
     ?>

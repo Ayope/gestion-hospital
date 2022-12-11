@@ -72,7 +72,7 @@ class User{
      }
 
   public static  function login($email,$password){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo();
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
@@ -109,7 +109,7 @@ class User{
 
 
    public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo(); 
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
@@ -165,7 +165,7 @@ class User{
       return ($user);
    }
    public static function getById(){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo();
     $id = $_SESSION['ID'];
     $stmt = $db->prepare("SELECT * FROM user where id = '$id' ");
@@ -177,7 +177,7 @@ class User{
 
    }
    public static function count($table){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo();
 
     $stmt = $db->prepare("SELECT COUNT(role) FROM user WHERE role LIKE '%$table%'");

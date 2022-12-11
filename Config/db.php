@@ -1,6 +1,6 @@
 <?php 
 
-class dbconnect{
+class Dbconnect{
 
     //properties 
     private $host = "localhost";

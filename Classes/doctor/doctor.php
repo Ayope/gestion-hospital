@@ -1,6 +1,6 @@
 <?php 
 
-    include "../User.php";
+    include "../user/User.php";
 
     class Doctor extends User{
         private $gender;
