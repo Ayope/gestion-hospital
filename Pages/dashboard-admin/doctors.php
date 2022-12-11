@@ -1,5 +1,13 @@
 <?php
- 
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+$countd = User::count("doc");
+
+if($_SESSION['ROLE']!="admin"){
+    header('location: ../../index.php');
+
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +46,9 @@
                     <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" > 
@@ -109,14 +119,14 @@
                     <!--  -->
                     <div class="d-flex justify-content-between">
                     <div class="  px-1 py-2 d-flex justify-content-center justify-content-md-start">
-                        <strong class="fs-3">Add New Doctor</strong>
-                        <div class="">
+                        <strong class="fs-3">Add New Doctor  👉</strong>
+                        <div class="d-flex mx-4 justify-content-end">
                         <button class="btn btn-dark">ADD</button>
                         </div>
                     </div></div>
 
                     <div class="mt-4">
-                        <h4>All Doctors (2)</h4>
+                        <h4>All Doctors (<?php echo $countd['COUNT(role)'] ?>)</h4>
                     </div> 
 
                     <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">

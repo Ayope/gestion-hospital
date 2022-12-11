@@ -21,7 +21,7 @@ class Dbconnect{
             echo "<br>Error occur in File -->> ",$err->getFile();
             echo "<br>Error occur on Line no -->> ",$err->getLine();
 
-            $this->$conn = null;
+            $this->conn = null;
         }
     }
 }
