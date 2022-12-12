@@ -41,34 +41,31 @@
 
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
-                <a class="text-decoration-none" href="dashboard.php" > 
+                <a class="text-decoration-none" href="dashboard.php" >
                 <button type="button" id="btnDash"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                </button></a>
-                <a class="text-decoration-none" href="doctors.php" >
-
+                </button>
+                  </a>
+                  <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnBook"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-heart-pulse-fill me-2"></i>Doctors
-                </button> </a>
-                <a class="text-decoration-none" href="schedule.php" > 
-
-                <button type="button" id="btnprfl"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-alarm-fill me-2"></i>Schedule
                 </button></a>
-                <a class="text-decoration-none" href="apoinment.php" > 
-
+                <button type="button" id="btnprfl"
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color active ">
+                    <i class="bi bi-alarm-fill me-2 "></i>Schedule
+                </button>
+                <a class="text-decoration-none" href="apoinment.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-telephone-inbound-fill me-2"></i>Appointment
                 </button></a>
-
+                <a class="text-decoration-none" href="pattient.php" >
                 <button type="button" id="btnprfl"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color active">
-                    <i class="bi bi-bandaid-fill me-2 "></i>Patients
-                </button>
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
+                    <i class="bi bi-bandaid-fill me-2"></i>Patients
+                </button></a>
                 <a href="assets/backend/sessionLogOut.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
@@ -111,105 +108,6 @@
                     </form>
 
                     <!--  -->
-                    <div class="mt-4">
-                        <h4>All Patients (8)</h4>
-                    </div> 
-
-                    <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
-<table class="table table-hover table-responsive ">
-  <thead  class="bg-light"style="border-color:#0A76D8;">
-    <tr>
-      <th scope="col">Doctor Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Spealities</th>
-      <th scope="col">Events</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Nouhaila KHAOUTI</td>
-      <td>Nouhaila@youcode.ma</td>
-      <td>Dentise</td>
-      <td>
-      <div class="btn-group" >
-
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>   
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-eye"> View</i></button>
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
-</div>
-
-
-    </td>
-    </tr>
-    <tr>
-      <td>Mohammed MOUSSIFA</td>
-      <td>Mohammed@youcode.ma</td>
-      <td>Cardiologie</td>
-      <td>
-      <div class="btn-group" >
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>    
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-trash"> Remove</i></button>    
-
-
-    </td>
-    </tr>
-    <tr>
-      <td>Ayoub AYOUK</td>
-      <td>Ayoub@youcode.ma</td>
-      <td>Accident and emergent</td>
-      <td>
-      <div class="btn-group" >
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>    
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
-    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-trash"> Remove</i></button>    
-</div>
-
-    </td>
-    </tr>
-    <tr>
-      <td>Ghita BAHAJ</td>
-      <td>Ghita@youcode.ma</td>
-      <td>Endocrinologie</td>
-      <td>
-      <div class="btn-group" >
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-pencil"> Edit</i></button>    
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
-</div>
-
-    </td>
-    </tr>
-    <tr>
-      <td>Abdellah EL GHOULAM</td>
-      <td>Abdellah@youcode.ma</td>
-      <td>Médecine interne</td>
-      <td>
-      <div class="btn-group" >
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-pencil"> Edit</i></button>    
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-eye"> View</i></button>    
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
-
-</div>
-   
-   
-    <!-- <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr> -->
-  </tbody>
-</table>
-</div> 
-    <!-- /#page-content-wrapper -->
-    <!-- TASK MODAL -->
       
     <!-- /#page-content-wrapper -->
     <!-- TASK MODAL -->

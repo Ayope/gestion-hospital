@@ -1,9 +1,8 @@
 <?php
 //INCLUDE DATABASE FILE
-include ("../Config/db.php");
-include ("../Classes/Session.php");
+include "../Config/db.php";
+include "../Classes/Session.php";
 //ROUTING
-
 if (isset($_POST['save_session']))        saveSession();
 if (isset($_POST['update_session']))      updateSession();
 if (isset($_GET['session_id']))      deleteSession();
