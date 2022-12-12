@@ -1,8 +1,6 @@
 <?php
 include '../../Classes/user/userScript.php';
-$info = User::getById();
-$countd = User::count("doc");
-$countp = User::count("pat") ;
+
 // $$countp = User::count("pat");
 
 if($_SESSION['ROLE']!="admin"){
@@ -37,6 +35,8 @@ if($_SESSION['ROLE']!="admin"){
 </head>
 
 <body>
+                    
+
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
@@ -181,14 +181,22 @@ if($_SESSION['ROLE']!="admin"){
                         <div class="position-relative">
                             <div class="table-responsive  shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
                                 <table class="table table-hover" style="cursor: pointer;">
+
                                     <tr class="shadow-sm mb-5 bg-white rounded" style="border-color: #000000;">
                                         <th>Appoinment number</th>
                                         <th>patient name</th>
                                         <th>Doctor</th>
                                         <th>Session</th>
                                     </tr>
-                                    <!-- <tr>
-                                    <td>3</td>
+                                    </thead>
+                                     <tbody>
+
+                                  
+                                    
+
+                                   
+                                 <!-- <tr>
+                                    <td>dazda</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>13</td>
@@ -204,13 +212,9 @@ if($_SESSION['ROLE']!="admin"){
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>13</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Nouhaila KHAOUTI</td>
-                                    <td>Nouhaila KHAOUTI</td>
-                                    <td>13</td>
-                                </tr> -->
+                                </tr>  -->
+                                </tbody>
+
                                 </table>
                             </div>
 

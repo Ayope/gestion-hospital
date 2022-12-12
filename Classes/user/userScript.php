@@ -3,6 +3,9 @@ include 'User.php';
 
 
 $user = new User;
+$info = User::getById();
+$countd = User::count("doc");
+$countp = User::count("pat") ;
 
 if(isset($_POST['login']))        logIn();
 if(isset($_POST['signup']))        signUp();

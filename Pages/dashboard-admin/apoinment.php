@@ -99,7 +99,7 @@ if($_SESSION['ROLE']!="admin"){
                 </div>
             </nav>
 
-            <div class="container-fluid px-4" id="container">
+            <!-- <div class="container-fluid px-4" id="container">
                 <div id="dashboardContainer">
                     <form>
                         <div class="d-flex">
@@ -114,7 +114,7 @@ if($_SESSION['ROLE']!="admin"){
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!--  -->
       
