@@ -1,5 +1,6 @@
 <?php
-include 'C:\xampp\htdocs\gestion-hospital\Config\db.php';
+require_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
+
 session_start();
 
 class User{
