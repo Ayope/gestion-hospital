@@ -1,6 +1,6 @@
 <?php 
 
-    include "../User.php";
+    include "../user/User.php";
 
     class Doctor extends User{
         private $gender;
@@ -48,13 +48,15 @@
         //Doctor Crud
         public function createDoctor(){
             return  "INSERT INTO doctor (city, speciality, Gender, codeUser)
-                VALUES ('$this->city', '$this->profession', '$this->gender', $this->codeUser)";
+            VALUES ('$this->city', '$this->profession', '$this->gender', '$this->codeUser')";
         }
-        public function readData(){
-
+        public static function readData(){
+            return "SELECT * FROM doctor";
         }
-        public function updateDoctor($doctor){
-            
+        public static function updateDoctor(){
+            return "UPDATE doctor
+            SET city=:city, speciality=:speciality, Gender=:gender
+            WHERE id=:id"; //<- Documentation 
         }
         public function deleteDoctor($id){
 

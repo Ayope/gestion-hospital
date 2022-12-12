@@ -1,5 +1,7 @@
 <?php
-session_start();
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+
 if($_SESSION['ROLE']!="doc"){
     header('location: ../../index.php');
 
@@ -41,36 +43,38 @@ if($_SESSION['ROLE']!="doc"){
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="../../Assests/images/doctors.png" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/doc.webp" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+ <h5><?php
+  echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" >
                 <button type="button" id="btnDash"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </button>
                   </a>
                   <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnBook"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-heart-pulse-fill me-2"></i>Doctors
+                    <i class="bi bi-telephone-inbound-fill me-2"></i>My Appointment
                 </button></a>
                 <button type="button" id="btnprfl"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color active ">
-                    <i class="bi bi-alarm-fill me-2 "></i>Schedule
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
+                    <i class="bi bi-alarm-fill me-2 "></i>My sessions
                 </button>
                 <a class="text-decoration-none" href="apoinment.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-telephone-inbound-fill me-2"></i>Appointment
+                    <i class="bi bi-bandaid-fill me-2"></i>My Patients
                 </button></a>
                 <a class="text-decoration-none" href="pattient.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-bandaid-fill me-2"></i>Patients
+                    <i class="bi bi-gear-fill"></i> settings
                 </button></a>
                 <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i

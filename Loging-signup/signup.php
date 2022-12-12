@@ -32,13 +32,22 @@ else{
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="../Assests/css/main.css" rel="stylesheet"/>
     <link href="../Assests/css/parsley.css" rel="stylesheet"/>
-    
+    <link rel="icon" href="../Assests/images/icont.png" type="image/png">
 </head>
 <body style="background-image: url('../Assests/images/bg01.jpg'); background-size: cover;">
 
     <div class="d-flex justify-content-center align-items-center my-4" style="height: 100vh;">    
         <form action="" method="POST" id="form" data-parsley-validate class="border bg-white rounded px-5 py-4 ">
-            
+        <?php if (isset($_SESSION['message'])): ?>
+				<div class="alert alert-danger alert-dismissible fade show">
+				<strong>Ooups !</strong>
+					<?php 
+						echo $_SESSION['message']; 
+						unset($_SESSION['message']);
+					?>
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+				</div>
+			<?php endif ?> 
             <div class="text-center">
                 <h1 id="title">SIGN UP</h1>
             </div>

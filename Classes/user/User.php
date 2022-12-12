@@ -1,5 +1,6 @@
 <?php
-include "../Config/db.php";
+require_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
+
 session_start();
 
 class User{
@@ -72,7 +73,7 @@ class User{
      }
 
   public static  function login($email,$password){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo();
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
@@ -109,7 +110,7 @@ class User{
 
 
    public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
-    $database = new dbconnect();
+    $database = new Dbconnect();
     $db = $database->connect_pdo(); 
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
     $stmt->execute();
@@ -122,15 +123,11 @@ class User{
 
 
     }else{
-      echo "email alredy exist!";
+      $_SESSION['message']="email alredy exist";
     }
 
    }
-   public function logOut(){
-    
-   
 
-   }
    public function createUser($user){
     global $bdd;
     $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
@@ -168,14 +165,38 @@ class User{
     $user = $req->execute();
       return ($user);
    }
-   public function getById($id){
+   public static function getById(){
+    if(isset($_SESSION['ID'])){
+        $database = new Dbconnect();
+        $db = $database->connect_pdo();
+        $id = $_SESSION['ID'];
+        $stmt = $db->prepare("SELECT * FROM user where id = '$id' ");
+        $stmt->execute();
+        
+          
+          return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+   }
+   public static function count($table){
+    $database = new Dbconnect();
+    $db = $database->connect_pdo();
+
+    $stmt = $db->prepare("SELECT COUNT(role) FROM user WHERE role LIKE '%$table%'");
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+   }
+
+
+   public static function getAllByRole($role){
     $database = new dbconnect();
-    $db = $database->connect_pdo(); 
-
-
-
-   }
-   public function count($table){
-
-   }
+    $db = $database->connect_pdo();
+    $stmt = $db->prepare(" SELECT * FROM `user` WHERE role LIKE '%$role%' ") ;
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+  
+  } 
 }
+

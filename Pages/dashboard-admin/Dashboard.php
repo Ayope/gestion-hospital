@@ -1,11 +1,13 @@
 <?php
-session_start();
+include '../../Classes/user/userScript.php';
+
+// $$countp = User::count("pat");
+
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
     
 }
- 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +35,8 @@ if($_SESSION['ROLE']!="admin"){
 </head>
 
 <body>
+                    
+
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
@@ -44,6 +48,9 @@ if($_SESSION['ROLE']!="admin"){
                     <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <button type="button" id="btnDash"
@@ -125,7 +132,7 @@ if($_SESSION['ROLE']!="admin"){
                                 <i class="bi bi-heart-pulse-fill "> </i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countd['COUNT(role)'] ?> </span><br>
                                 <span>Doctors</span>
                             </div>
                         </button>
@@ -135,7 +142,7 @@ if($_SESSION['ROLE']!="admin"){
                                 <i class="bi bi-bandaid-fill "></i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countp['COUNT(role)'] ?> </span><br>
                                 <span>Patient</span>
                             </div>
                         </button>
@@ -174,14 +181,22 @@ if($_SESSION['ROLE']!="admin"){
                         <div class="position-relative">
                             <div class="table-responsive  shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
                                 <table class="table table-hover" style="cursor: pointer;">
+
                                     <tr class="shadow-sm mb-5 bg-white rounded" style="border-color: #000000;">
                                         <th>Appoinment number</th>
                                         <th>patient name</th>
                                         <th>Doctor</th>
                                         <th>Session</th>
                                     </tr>
-                                    <!-- <tr>
-                                    <td>3</td>
+                                    </thead>
+                                     <tbody>
+
+                                  
+                                    
+
+                                   
+                                 <!-- <tr>
+                                    <td>dazda</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>13</td>
@@ -197,13 +212,9 @@ if($_SESSION['ROLE']!="admin"){
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>Nouhaila KHAOUTI</td>
                                     <td>13</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Nouhaila KHAOUTI</td>
-                                    <td>Nouhaila KHAOUTI</td>
-                                    <td>13</td>
-                                </tr> -->
+                                </tr>  -->
+                                </tbody>
+
                                 </table>
                             </div>
 

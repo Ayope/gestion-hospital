@@ -1,11 +1,14 @@
 <?php
 include 'User.php'; 
 
+
 $user = new User;
+$info = User::getById();
+$countd = User::count("doc");
+$countp = User::count("pat") ;
 
 if(isset($_POST['login']))        logIn();
 if(isset($_POST['signup']))        signUp();
-
 function logIn(){
 
     $email = $_POST['email'];
@@ -30,6 +33,7 @@ function signUp(){
     User::signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone );
 
 }
+
 
 
 

@@ -1,5 +1,14 @@
 <?php
- 
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+$countd = User::count("doc");
+$show = User::getAllByRole("doc");
+
+if($_SESSION['ROLE']!="admin"){
+    header('location: ../../index.php');
+
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +47,9 @@
                     <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" > 
@@ -108,15 +119,16 @@
 
                     <!--  -->
                     <div class="d-flex justify-content-between">
-                    <div class="  px-1 py-2 d-flex justify-content-center justify-content-md-start">
-                        <strong class="fs-3">Add New Doctor</strong>
-                        <div class="">
-                        <button class="btn btn-dark">ADD</button>
+                    <div class=" px-4 py-4 ">
+                        <strong class="fs-3">Add New Doctor :</strong>
+                    </div>
+                        <div class="px-4 py-4">
+                        <button class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#modal-task">Add doctor</button>
                         </div>
-                    </div></div>
+                    </div>
 
                     <div class="mt-4">
-                        <h4>All Doctors (2)</h4>
+                        <h4>All Doctors (<?php echo $countd['COUNT(role)'] ?>)</h4>
                     </div> 
 
                     <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
@@ -130,7 +142,34 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+  <?php foreach ($show as $row) {
+                         $fname = $row['firstName'];
+                         $lname = $row['lastName'];
+                         $email = $row['email'];
+                         $numero = $row['NumeroTelephone'];
+                                         
+
+                        echo 
+                        "<tr>
+                         <td>$fname</td>
+                         <td>$lname</td>
+                         <td>$email</td>
+                         <td>
+      <div class='btn-group' >
+
+    <button class='btn btn-dark  btn-md m-1 rounded '><i class='bi bi-pencil'> Edit</i></button>   
+    <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-eye'> View</i></button>
+    <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-trash'> Remove</i></button>    
+</div>
+
+
+    </td>
+                         </tr>";
+                        
+
+
+                    } ?>
+    <!-- <tr>
       <td>Nouhaila KHAOUTI</td>
       <td>Nouhaila@youcode.ma</td>
       <td>Dentise</td>
@@ -194,7 +233,7 @@
     <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-eye"> View</i></button>    
     <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
 
-</div>
+</div> -->
    
    
     <!-- <tr>
@@ -214,8 +253,63 @@
 </div> 
     <!-- /#page-content-wrapper -->
     <!-- TASK MODAL -->
+    <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+		<form name="modalForm" action= "" method="POST">
+            <input type="hidden" name="id" value="">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header heaader" >
+						<h1 class="modal-title" id="modalTask" name="bigTitle">Add Doctor</h1>
+						<button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
 
+					<div class="modal-body boody">
+	
+                       
+
+                        <div class="mb-3">
+                            <label for="special_Inpt" class="fw-bold">First Name :</label>
+                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="gender_Inpt" class="fw-bold">Last Name : </label>
+                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="gender_Inpt" class="fw-bold">Gender : </label>
+                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="gender_Inpt" class="fw-bold">Speciality : </label>
+                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="city_Inpt" class="fw-bold">Numero telephone : </label>
+                            <input name="city" type="text" id="city_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="special_Inpt" class="fw-bold">Email :</label>
+                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="special_Inpt" class="fw-bold">Password :</label>
+                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+						</div>
+
+                        
+
+					</div>
+
+					<div class="modal-footer foooter" id = "modalFooter">
+						<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-dark" id="save" name="saveChanges">Save changes!</button>
+					</div>
+				</div>
+			</div>	
+		</form>	
+	</div>
     <!-- END TASK MODAL-->
+    
     <!--bootsrap js cdn link-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
