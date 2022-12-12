@@ -166,14 +166,16 @@ class User{
       return ($user);
    }
    public static function getById(){
-    $database = new Dbconnect();
-    $db = $database->connect_pdo();
-    $id = $_SESSION['ID'];
-    $stmt = $db->prepare("SELECT * FROM user where id = '$id' ");
-    $stmt->execute();
-    
-    
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+    if(isset($_SESSION['ID'])){
+        $database = new Dbconnect();
+        $db = $database->connect_pdo();
+        $id = $_SESSION['ID'];
+        $stmt = $db->prepare("SELECT * FROM user where id = '$id' ");
+        $stmt->execute();
+        
+          
+          return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 
    }
@@ -185,4 +187,16 @@ class User{
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
    }
+
+
+   public static function getAllByRole($role){
+    $database = new dbconnect();
+    $db = $database->connect_pdo();
+    $stmt = $db->prepare(" SELECT * FROM `user` WHERE role LIKE '%$role%' ") ;
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+  
+  } 
 }
+
