@@ -108,11 +108,11 @@
     </form>
 
     <?php
-        if(isset($_POST['saveChanges'])){
-            $city = $_POST['city'];
-            $speciality = $_POST['speciality'];
-            $gender = $_POST['gender'];
-        }
+        // if(isset($_POST['saveChanges'])){
+        //     $city = $_POST['city'];
+        //     $specialty= $_POST['speciality'];
+        //     $gender = $_POST['gender'];
+        // }
     
     ?>
 
