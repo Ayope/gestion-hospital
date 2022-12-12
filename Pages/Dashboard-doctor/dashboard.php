@@ -1,4 +1,12 @@
 <?php
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+
+if($_SESSION['ROLE']!="doc"){
+    header('location: ../../index.php');
+
+    
+}
  
 ?>
 <!DOCTYPE html>
@@ -35,10 +43,12 @@
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/doctors.png" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+ <h5><?php
+  echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" >
@@ -66,7 +76,7 @@
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-bandaid-fill me-2"></i>Patients
                 </button></a>
-                <a href="assets/backend/sessionLogOut.php"
+                <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>

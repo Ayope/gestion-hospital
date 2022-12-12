@@ -1,5 +1,15 @@
 <?php
- 
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+$countd = User::count("doc");
+$countp = User::count("pat") ;
+// $$countp = User::count("pat");
+
+if($_SESSION['ROLE']!="admin"){
+    header('location: ../../index.php');
+
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +45,12 @@
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <button type="button" id="btnDash"
@@ -67,7 +80,7 @@
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-bandaid-fill me-2"></i>Patients
                 </button>
-                <a href="assets/backend/sessionLogOut.php"
+                <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
@@ -119,7 +132,7 @@
                                 <i class="bi bi-heart-pulse-fill "> </i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countd['COUNT(role)'] ?> </span><br>
                                 <span>Doctors</span>
                             </div>
                         </button>
@@ -129,7 +142,7 @@
                                 <i class="bi bi-bandaid-fill "></i>
                             </div>
                             <div class="order-1">
-                                <span>0</span><br>
+                                <span><?php echo $countp['COUNT(role)'] ?> </span><br>
                                 <span>Patient</span>
                             </div>
                         </button>

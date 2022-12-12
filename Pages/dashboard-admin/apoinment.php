@@ -1,5 +1,11 @@
 <?php
- 
+include '../../Classes/user/userScript.php';
+$info = User::getById();
+if($_SESSION['ROLE']!="admin"){
+    header('location: ../../index.php');
+
+    
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +41,12 @@
                 Welcome Back</div>
             <div class="list-group list-group-flush my-3">
                 <div class="d-block text-center  ">
-                    <img src="../../Assests/images/user.jpg" alt="account img" id="userImage" style="border-radius: 50%;
+                    <img src="../../Assests/images/admin.jpg" alt="account img" id="userImage" style="border-radius: 50%;
   height:100px;
   width:100px;">
-
+  <h5><?php
+ echo $info['firstName']." ".$info['lastName'] ;
+?></h5>
                     <h5 class="mt-1" id="userName"></h5>
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" >
