@@ -101,19 +101,28 @@
 
     <div class="form-group">
         <label for="4">Code User</label>
-        <input type="text" class="form-control" id="4" name = "codeUser">
+        <input type="number" class="form-control" id="4" name = "codeUser">
     </div>
 
     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </form>
 
     <?php
-        // if(isset($_POST['saveChanges'])){
-        //     $city = $_POST['city'];
-        //     $specialty= $_POST['speciality'];
-        //     $gender = $_POST['gender'];
-        // }
-    
+        if(isset($_POST['saveChanges'])){
+            $database = new Dbconnect;
+            $db = $database->connect_pdo();
+
+            $id = $_POST['id'];
+            $city = $_POST['city'];
+            $speciality= $_POST['speciality'];
+            $gender = $_POST['gender'];
+
+            $sql = Doctor::updateDoctor();
+            $sth = $db->prepare($sql);
+            $sth->execute(['city' => $city, 'speciality' => $speciality, 'gender'=> $gender, 'id' => $id]);
+            
+        }
+
     ?>
 
     <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
