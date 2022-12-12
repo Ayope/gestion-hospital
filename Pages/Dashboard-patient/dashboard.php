@@ -52,28 +52,28 @@ if($_SESSION['ROLE']!="pat"){
                 </div>
                 <a class="text-decoration-none" href="dashboard.php" >
                 <button type="button" id="btnDash"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color active">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </button>
                   </a>
                   <a class="text-decoration-none" href="doctors.php" >
                 <button type="button" id="btnBook"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-heart-pulse-fill me-2"></i>Doctors
+                    <i class="bi bi-heart-pulse-fill me-2"></i>All doctors
                 </button></a>
                 <button type="button" id="btnprfl"
-                    class=" list-group-item list-group-item-action bg-transparent second-text-color active ">
-                    <i class="bi bi-alarm-fill me-2 "></i>Schedule
+                    class=" list-group-item list-group-item-action bg-transparent second-text-color ">
+                    <i class="bi bi-alarm-fill me-2 "></i>Schedule Sessions
                 </button>
                 <a class="text-decoration-none" href="apoinment.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-telephone-inbound-fill me-2"></i>Appointment
+                    <i class="bi bi-telephone-inbound-fill me-2"></i>My booking
                 </button></a>
                 <a class="text-decoration-none" href="pattient.php" >
                 <button type="button" id="btnprfl"
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
-                    <i class="bi bi-bandaid-fill me-2"></i>Patients
+                    <i class="bi bi-gear-fill"></i> Settings
                 </button></a>
                 <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
