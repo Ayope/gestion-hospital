@@ -61,7 +61,8 @@ class Session {
 
 	//Insertion d'une session
 	public static function create($session) {
-		global $bdd;
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		$req = $bdd->prepare("INSERT INTO session(dateDebut,dateFin,title,maxNumber,codeDoctor)VALUES(:dateDebut,:dateFin,:title,:maxNumber,:codeDoctor)")or die(print_r($bdd-> errorInfo()));
 		$req->bindParam(':dateDebut', $session->dateDebut);
 		$req->bindParam(':dateFin',$session->debutFin);
@@ -74,8 +75,8 @@ class Session {
 
 	  //Modifier session
 	  public static function update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor) {
-		global $bdd;
-		
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		$req = $bdd->prepare("UPDATE session SET dateDebut =:dateDebut, dateFin = :dateFin ,title = :title, maxNumber = :maxNumber, codeDoctor = :codeDoctor  WHERE id =:ID")or die(print_r($bdd-> errorInfo()));
 		$req->bindParam(':dateDebut', $dateDebut);
 		$req->bindParam(':dateFin',$dateFin);

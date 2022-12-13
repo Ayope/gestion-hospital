@@ -10,7 +10,8 @@ class Patient extends User {
 	private $codeUser;
 
     //constructeur:
-	public function __construct($birthDay,$gender,$city,$cin) {
+	public function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role,$birthDay,$gender,$city,$cin) {
+        parent::__construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role);
 		$this->birthDay= $birthDay;
 		$this->gender= $gender;
 		$this->city=$city;
@@ -59,32 +60,40 @@ class Patient extends User {
      }
 
 	//Insertion d'une session
-	public static function create($patient) {
-		global $bdd;
-        parent::createUser($patient);
-        $codeUser=$bdd->lastInsertId();
+	public function create() {
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+		$cfg['PersistentConnections'] = TRUE;
+        $query=$this->createUser();
+		if($query){
+        $request=$bdd->query("SELECT LAST_INSERT_ID()");
+		$codeUser=$request->fetch();
+		print_r($codeUser);
 		$req = $bdd->prepare("INSERT INTO patient(Gender,cin,birthDay,city,codeUser)VALUES(:gender,:cin,:birthDay,:city,:codeUser)")or die(print_r($bdd-> errorInfo()));
-		$req->bindParam(':gender', $patient->gender);
-		$req->bindParam(':cin',$patient->cin);
-		$req->bindParam(':birthDay',$patient->birthDay);
-		$req->bindParam(':city',$patient->city);
+		$req->bindParam(':gender', $this->gender);
+		$req->bindParam(':cin',$this->cin);
+		$req->bindParam(':birthDay',$this->birthDay);
+		$req->bindParam(':city',$this->city);
 		$req->bindParam(':codeUser',$codeUser);
 		$patientI=$req->execute();
-		return ($patientI);
+		return ($patientI);}else{
+            return 0;
+        }
       }
 
 	  //Modifier session
-	  public static function update($patient) {
-		global $bdd;
+	  public function update($id) {
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		
-        $query=parent::updateUser($patient);
+        $query=$this->updateUser($id);
         if($query){
 		$req = $bdd->prepare("UPDATE patient  SET Gender=:gender,cin=:cin,birthDay=:birthDay,city=:city WHERE codeUser=:ID")or die(print_r($bdd-> errorInfo()));
-		$req->bindParam(':gender', $patient->gender);
-		$req->bindParam(':cin',$patient->cin);
-		$req->bindParam(':birthDay',$patient->birthDay);
-		$req->bindParam(':city',$patient->city);
-        $req->bindParam(':ID',$patient->id);
+		$req->bindParam(':gender', $this->gender);
+		$req->bindParam(':cin',$this->cin);
+		$req->bindParam(':birthDay',$this->birthDay);
+		$req->bindParam(':city',$this->city);
+        $req->bindParam(':ID',$this->id);
 		$patientI=$req->execute();
 		return ($patientI);
         }else{
@@ -94,7 +103,8 @@ class Patient extends User {
 
 	 //Suppression d'une session
 	public static function delete($ID) {
-		global $bdd;
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
         $query=parent::deleteUser($ID);
         if($query){
 		$req = $bdd->prepare('Delete FROM patient WHERE id = :id')or die(print_r($bdd-> errorInfo()));

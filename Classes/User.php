@@ -69,7 +69,8 @@ class User {
 
      }
    public function login($email,$password){
-    global $bdd;
+    $database = new Dbconnect();
+		$bdd = $database->connect_pdo();
       $sql="SELECT email ,password  from user where email = $email";
       $result = $bdd->query($sql);
       $numRows = $result->num_rows;
@@ -97,29 +98,36 @@ class User {
     header('location: index.php');
 
    }
-   public function createUser($user){
-    global $bdd;
+   public function createUser(){
+    $database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+    echo "create User";
     $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
-    $req->bindParam(':firstName', $user->firstName);
-    $req->bindParam(':lastName',$user->lastName);
-    $req->bindParam(':email',$user->email);
-    $req->bindParam(':password',$user->password);
-    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
-    $req->bindParam(':icon',$user->icon);
-    $req->bindParam(':role',$user->role);
+    $req->bindParam(':firstName', $this->firstName);
+    $req->bindParam(':lastName',$this->lastName);
+    $req->bindParam(':email',$this->email);
+    $req->bindParam(':password',$this->password);
+    $req->bindParam(':NumeroTelephone',$this->NumeroTelephone);
+    $req->bindParam(':icon',$this->icon);
+    $req->bindParam(':role',$this->role);
     $userI=$req->execute();
-    return ($userI);
+    if($userI){
+      echo "done";
+    }
+    return ($req);
    }
-   public function updateUser($user){
-    global $bdd;
-    $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role")or die(print_r($bdd-> errorInfo()));
-    $req->bindParam(':firstName', $user->firstName);
-    $req->bindParam(':lastName',$user->lastName);
-    $req->bindParam(':email',$user->email);
-    $req->bindParam(':password',$user->password);
-    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
-    $req->bindParam(':icon',$user->icon);
-    $req->bindParam(':role',$user->role);
+   public function updateUser($id){
+    $database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+    $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role WHERE id=:ID")or die(print_r($bdd-> errorInfo()));
+    $req->bindParam(':firstName', $this->firstName);
+    $req->bindParam(':lastName',$this->lastName);
+    $req->bindParam(':email',$this->email);
+    $req->bindParam(':password',$this->password);
+    $req->bindParam(':NumeroTelephone',$this->NumeroTelephone);
+    $req->bindParam(':icon',$this->icon);
+    $req->bindParam(':role',$this->role);
+    $req->bindParam(':ID',$id);
     $userU=$req->execute();
     return ($userU);
    }
@@ -127,7 +135,8 @@ class User {
      
    }
    public function getUserByEmail($email){
-    global $bdd;
+    $database = new Dbconnect();
+		$bdd = $database->connect_pdo();
     $req = $bdd->prepare('SELECT * FROM user WHERE email = :email')or die(print_r($bdd-> errorInfo()));
     $req->bindParam(':email',$email);
     $user = $req->execute();
