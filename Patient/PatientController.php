@@ -106,7 +106,7 @@ function updatePatient()
         $lastName =test_input( $_POST["lastName"]);
         $email =test_input( $_POST["email"]);
         $password = password_hash(test_input($_POST["password"]), PASSWORD_BCRYPT);
-        $img = $_POST["icon"];
+        $img = $_POST["img"];
         if (isset($_FILES['icon']['name'])) {
             $image_name = $_FILES['icon']['name'];
             if ($image_name != "") {

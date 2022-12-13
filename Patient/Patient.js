@@ -1,25 +1,34 @@
 
-function editSession(id, firstName, lastName, email, password, Numerotalephone,city,cin,gender,icon,) {
-    console.log(
-      id +
-        "  " +
-        title +
-        "  " +
-        dateDebut +
-        "  " +
-        dateFin +
-        "   " +
-        maxNumber +
-        "   " +
-        codeDoctor
-    );
+function editSession(id, firstName, lastName, email, password, Numerotalephone,city,cin,gender,icon) {
+    // console.log(
+    //   id +
+    //     "  " +
+    //     firstName +
+    //     "  " +
+    //     lastName +
+    //     "  " +
+    //     dateFin +
+    //     "   " +
+    //     maxNumber +
+    //     "   " +
+    //     codeDoctor
+    // );
   
-    document.getElementById("dateDebut1").value = dateDebut;
-    document.getElementById("dateFin1").value = dateFin;
-    document.getElementById("title1").value = title;
-    document.getElementById("maxNumber1").value = maxNumber;
-    document.getElementById("codeDoctor1").value = codeDoctor;
-    document.getElementById("hidden").innerHTML = `<input type="hidden" name="session_id" value="${id}">`;
+    document.getElementById("firstName1").value = firstName;
+    document.getElementById("lastName1").value = lastName;
+    document.getElementById("email1").value = email;
+    document.getElementById("password1").value = password;
+    document.getElementById("NumeroTalephone1").value = Numerotalephone;
+    document.getElementById("city1").value = city;
+    document.getElementById("cin1").value = cin;
+    document.getElementById("gender").value = gender;
+    document.getElementById("hidden").innerHTML = `<input type="hidden" name="user_id" value="${id}">`;
+    document.getElementById(
+      "hidden_img"
+    ).innerHTML = `<input type="hidden" name="img" value="${icon}">`;
+    document.getElementById(
+      "img"
+    ).innerHTML = `<img src="${icon}" height="200" width="130">`;
     // Ouvrir Modal form
     $("#ModalSession").modal("show");
   }
