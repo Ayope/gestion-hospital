@@ -1,6 +1,9 @@
 <?php
 include '../../Classes/user/userScript.php';
 $info = User::getById();
+$countp = User::count("pat");
+$showp = User::getAllByRole("pat");
+
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
@@ -120,36 +123,46 @@ if($_SESSION['ROLE']!="admin"){
 
                     <!--  -->
                     <div class="mt-4">
-                        <h4>All Patients (8)</h4>
+                        <h4>All Patients (<?php echo $countp['COUNT(role)'] ?>)</h4>
                     </div> 
 
                     <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
 <table class="table table-hover table-responsive ">
   <thead  class="bg-light"style="border-color:#0A76D8;">
     <tr>
-      <th scope="col">Doctor Name</th>
+      <th scope="col">Full Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Spealities</th>
+      <th scope="col">Phone</th>
       <th scope="col">Events</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Nouhaila KHAOUTI</td>
-      <td>Nouhaila@youcode.ma</td>
-      <td>Dentise</td>
-      <td>
-      <div class="btn-group" >
+  <?php foreach ($showp as $row) {
+                         $fname = $row['firstName'];
+                         $lname = $row['lastName'];
+                         $email = $row['email'];
+                         $numero = $row['NumeroTelephone'];
+                                         
 
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>   
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-eye"> View</i></button>
-    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
-</div>
+                        echo 
+                        "  <tr>
+                        <td>$fname $lname</td>
+                        <td>$email</td>
+                        <td>$numero</td>
+                        <td>
+                  
+                      <button class='btn btn-dark btn-bg btn-md m-1 rounded'><i class='bi bi-eye'> View</i></button>
+                  
+                  
+                  
+                      </td>
+                      </tr>";
+                        
 
 
-    </td>
-    </tr>
-    <tr>
+                    } ?>
+  
+    <!-- <tr>
       <td>Mohammed MOUSSIFA</td>
       <td>Mohammed@youcode.ma</td>
       <td>Cardiologie</td>
@@ -161,8 +174,8 @@ if($_SESSION['ROLE']!="admin"){
 
 
     </td>
-    </tr>
-    <tr>
+    </tr> -->
+    <!-- <tr>
       <td>Ayoub AYOUK</td>
       <td>Ayoub@youcode.ma</td>
       <td>Accident and emergent</td>
@@ -200,7 +213,7 @@ if($_SESSION['ROLE']!="admin"){
 
 </div>
    
-   
+    -->
     <!-- <tr>
       <td>2</td>
       <td>Jacob</td>
