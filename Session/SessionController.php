@@ -3,7 +3,6 @@
 include ("../Config/db.php");
 include ("./Session.php");
 //ROUTING
-
 if (isset($_POST['save_session']))        saveSession();
 if (isset($_POST['update_session']))      updateSession();
 if (isset($_GET['session_id']))      deleteSession();
