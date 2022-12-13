@@ -3,7 +3,8 @@
 include "appointment.php";
 
 if(isset($_POST['save_Appointment'])) saveAppointment();
-if(isset($_POST['delete']))  deleteAppointment();
+if(isset($_POST['delete_appointment']))  deleteAppointment();
+if(isset($_POST['update_Appointment'])) updateAppointment();
 
 function saveAppointment(){
     $appointment= new Appointment();
@@ -26,37 +27,36 @@ function getAppointment(){
     <td><?=$row['codePatient']; ?></td>
     <td><?=$row['codeSession']; ?></td>
     <td class="">
-        <form action="Post">
-            <div class="d-flex justify-content-center">
-                <div class="px-5">
-                    <input type="submit" class="btn btn-warning text-white" value="update" name="update" id="update">
-                </div>
-                <div>
-                    <input type="submit" class="btn btn-danger" value="delete" name="delete" id="delete">
-                </div>
+        <div class="d-flex justify-content-center">
+            <div class="px-5">
+                <button type="button" class="btn btn-warning text-white" value="" id="<?=$row['id'];?>"
+                    onclick="remplir_form(id);" description="<?=$row['description']; ?>" date="<?=$row['dateA']; ?>"
+                    codePatient="<?=$row['codePatient']; ?>" codeSession="<?=$row['codeSession']; ?>">update</button>
             </div>
-        </form>
+            <div>
+                <form method="post">
+                    <input type="hidden" name="idHideAppointment" id="idHideAppointment" value="<?=$row['id'];?>">
+                    <button type="submit" class="btn btn-danger" value="" name="delete_appointment">delete</button>
+                </form>
+            </div>
+        </div>
     </td>
 </tr>
 <?php }  
 }
 
-function readById($id){
+function updateAppointment(){
     $appointment= new Appointment();
-    $valeur=$appointment->read();
+    $appointment->setDescription($_POST['description']);
+    $appointment->setDate($_POST['date']);
+    $appointment->setCodeSession($_POST['cs']);
+    $appointment->setCodePatient($_POST['cp']);
+    $appointment->SetId($_POST['idHide']);
+    $appointment->update();
 }
-
-// function updateAppointment(){
-//     $id=$_POST[''];
-//     $appointment= new Appointment;
-//     $appointment->setId($id);
-//     $appointment->update()
-// }
-// function deleteAppointment(){
-//   $id=$_POST[''];
-//   $appointment= new Appointment();
-//   $appointment->setId($id);
-//   $appointment->delete();
-//   header("Location: test.php");
-// }
+function deleteAppointment(){
+  $appointment= new Appointment();
+  $appointment->SetId($_POST['idHideAppointment']);
+  $appointment->delete();
+}
 ?>
