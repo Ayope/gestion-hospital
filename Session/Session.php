@@ -1,4 +1,6 @@
 <?php
+require_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
+
 class Session {
 	//les attributes d'une session
 	private $id;
@@ -104,10 +106,15 @@ class Session {
       }
 	//la liste  des sessions de l'application:
 	public static function getAll() {
-		global $bdd;
-		$sql="SELECT * FROM session";
-		$all= $bdd->query($sql);
-		return ($all);
+	
+		$database = new Dbconnect();
+        $db = $database->connect_pdo();
+        $stmt = $db->prepare("SELECT session.title, user.firstName, user.lastName, session.dateDebut, session.maxNumber, user.id, session.codeDoctor FROM session, user , doctor WHERE doctor.codeUser = user.id");
+        $stmt->execute();
+        
+          
+          return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
     }
 	//recuperer une session par son title
 	public static function LoadSession($title){
@@ -115,6 +122,8 @@ class Session {
 		$sql="SELECT * FROM session WHERE title = '".$title."'";
 		$pass = $bdd->query($sql);
 		return ($pass);
+
+		
 	}
     //recuperer le prenombre des sessions
 	public static function nbreSession(){

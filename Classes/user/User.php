@@ -128,18 +128,13 @@ class User{
 
    }
 
-   public function createUser($user){
-    global $bdd;
-    $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
-    $req->bindParam(':firstName', $user->firstName);
-    $req->bindParam(':lastName',$user->lastName);
-    $req->bindParam(':email',$user->email);
-    $req->bindParam(':password',$user->password);
-    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
-    $req->bindParam(':icon',$user->icon);
-    $req->bindParam(':role',$user->role);
-    $userI=$req->execute();
-    return ($userI);
+   public static function createUser($fname,$lname,$email,$password,$icon,$role,$NumeroTelephone,$city,$speciality,$gender){
+    $database = new Dbconnect();
+    $db = $database->connect_pdo(); 
+    $stmt = $db->prepare("INSERT INTO `user`(`id`, `firstName`, `lastName`, `email`, `password`, `icon`, `role`, `NumeroTelephone`) VALUES (null,'$fname','$lname','$email','$password','$icon','$role','$NumeroTelephone');
+    INSERT INTO `doctor`( `city`, `speciality`, `Gender`, `codeUser`) VALUES ('$city','$speciality','$gender', LAST_INSERT_ID() ) ") ;
+    $stmt->execute();
+   
    }
    public function updateUser($user){
     global $bdd;

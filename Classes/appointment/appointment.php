@@ -93,18 +93,18 @@ class Appointment{
         }  
     }
 
-    // public function delete(){
-    //     try{
-    //         $conn= new dbconnect();
-    //         $db=$conn->connect_pdo();
-    //         $req=$db->prepare("DELETE * FROM `appointment` WHERE appointment.id=?");
-    //         $result=$req->execute(array($this->id));
-    //         return $result;
-    //     }catch(Execption $exp){
-    //         return $exp->getMessage();
-    //     }
+    public function delete(){
+        try{
+            $conn= new dbconnect();
+            $db=$conn->connect_pdo();
+            $req=$db->prepare("DELETE * FROM `appointment` WHERE appointment.id=?");
+            $result=$req->execute(array($this->id));
+            return $result;
+        }catch(Execption $exp){
+            return $exp->getMessage();
+        }
         
-    // }
+    }
 
 
 }

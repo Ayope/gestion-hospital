@@ -254,7 +254,7 @@ if($_SESSION['ROLE']!="admin"){
     <!-- /#page-content-wrapper -->
     <!-- TASK MODAL -->
     <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-		<form name="modalForm" action= "" method="POST">
+		<form name="modalForm" action="" method="POST">
             <input type="hidden" name="id" value="">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -269,31 +269,35 @@ if($_SESSION['ROLE']!="admin"){
 
                         <div class="mb-3">
                             <label for="special_Inpt" class="fw-bold">First Name :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <input name="docf" type="text" id="special_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="gender_Inpt" class="fw-bold">Last Name : </label>
-                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+                            <input name="docl" type="text" id="gender_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="gender_Inpt" class="fw-bold">Gender : </label>
-                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+                            <input name="docg" type="text" id="gender_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="gender_Inpt" class="fw-bold">Speciality : </label>
-                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+                            <input name="docs" type="text" id="gender_Inpt" class="form-control" value="" required>
+						</div>
+                        <div class="mb-3">
+                            <label for="gender_Inpt" class="fw-bold">City : </label>
+                            <input name="doccity" type="text" id="gender_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="city_Inpt" class="fw-bold">Numero telephone : </label>
-                            <input name="city" type="text" id="city_Inpt" class="form-control" value="" required>
+                            <input name="docc" type="text" id="city_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="special_Inpt" class="fw-bold">Email :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <input name="doce" type="text" id="special_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="special_Inpt" class="fw-bold">Password :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <input name="docp" type="text" id="special_Inpt" class="form-control" value="" required>
 						</div>
 
                         
@@ -302,7 +306,7 @@ if($_SESSION['ROLE']!="admin"){
 
 					<div class="modal-footer foooter" id = "modalFooter">
 						<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-dark" id="save" name="saveChanges">Save changes!</button>
+						<button type="submit" class="btn btn-dark" id="save" name="adddoc">Save changes!</button>
 					</div>
 				</div>
 			</div>	

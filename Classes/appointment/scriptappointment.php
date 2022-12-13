@@ -29,7 +29,10 @@ function getAppointment(){
         <form action="Post">
             <div class="d-flex justify-content-center">
                 <div class="px-5">
-                    <input type="submit" class="btn btn-warning text-white" value="update" name="update" id="update">
+                    <form action="">
+                 
+                   <input type="submit" class="btn btn-warning text-white" value="update" name="update" id="update">
+                   </form>
                 </div>
                 <div>
                     <input type="submit" class="btn btn-danger" value="delete" name="delete" id="delete">
@@ -52,11 +55,11 @@ function readById($id){
 //     $appointment->setId($id);
 //     $appointment->update()
 // }
-// function deleteAppointment(){
-//   $id=$_POST[''];
-//   $appointment= new Appointment();
-//   $appointment->setId($id);
-//   $appointment->delete();
-//   header("Location: test.php");
-// }
+function deleteAppointment(){
+  $id=$_POST[''];
+  $appointment= new Appointment();
+  $appointment->setId($id);
+  $appointment->delete();
+  header("Location: test.php");
+}
 ?>

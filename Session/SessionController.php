@@ -28,13 +28,7 @@ function getSession(){
         $maxNumber = $row["maxNumber"];
         $codeDoctor =$row["codeDoctor"];
         $id =$row["id"];
-        ?>
-
-        <div class="d-flex justify-content-around">
-        <button class="btn button" type="submit" onclick="editSession(<?= $id ?>,`<?= $title ?>`,`<?= $dateDebut ?>`,`<?= $dateFin ?>`,`<?= $maxNumber ?>`,`<?= $codeDoctor ?>`)">update</button>
-        <i class="bi bi-bookmark-check-fill" onclick="deleteSession(<?= $id ?>)"></i>
-    </div>
-    <?php
+        
     }
 }
 

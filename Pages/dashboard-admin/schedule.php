@@ -1,11 +1,16 @@
 <?php
 include '../../Classes/user/userScript.php';
+include '../../Session/Session.php';
 $info = User::getById();
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
 
     
 }
+$sessions=Session::getAll();
+
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +102,136 @@ if($_SESSION['ROLE']!="admin"){
 
                 </div>
             </nav>
+            <div class="container-fluid px-4" id="container">
+                <div id="dashboardContainer">
+                    <form>
+                        <div class="d-flex">
+                            <div class="form-outline form-group d-flex flex-fill">
+                                <input type="search" class="form-control input-sm"
+                                    placeholder="&#128270; Search Schedule">
+                            </div>
+                            <div class="px-2">
+                                <button type="button" class="btn btn-dark border-0" style="
+                                        padding: 5px 5px;width: 100px;text-align: center;cursor: pointer;">
+                                    search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+            
+            <div class="mt-4">
+                        <h4>All Schedule (1)</h4>
+                    </div>  
+            <div class="container-fluid  mt-5 shadow-sm table-wrapper-scroll-y my-custom-scrollbar">
+<table class="table table-hover table-responsive ">
+  <thead  class="bg-light"style="border-color:#0A76D8;">
+    <tr>
+      <th scope="col">Session Title</th>
+      <th scope="col">Doctor</th>
+      <th scope="col">Schedule Date & Time</th>
+      <th scope="col">Events</th>
+    </tr>
+  </thead>
+  <tbody>
+ 
+  <?php
+ 
 
+  foreach ($sessions as $row) {
+    $fname = $row['firstName'];
+    $lname = $row['lastName'];
+   $title = $row['title'];
+   $time = $row['dateDebut'];
+                    
+
+   echo 
+   "<tr>
+    <td>$title</td>
+    <td>$fname $lname</td>
+    <td>$time</td>
+    <td>
+<div class='btn-group' >
+
+<button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-eye'> View</i></button>
+<button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-trash'> Remove</i></button>    
+</div>
+
+
+</td>
+    </tr>";
+   
+
+
+}
+
+  ?>
+    <!-- <tr>
+      <td>.$sessions['title].</td>
+      <td>Mohammed@youcode.ma</td>
+      <td>Cardiologie</td>
+      <td>
+      <div class="btn-group" >
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>    
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-trash"> Remove</i></button>    
+
+
+    </td>
+    </tr> -->
+    <!-- <tr>
+      <td>Ayoub AYOUK</td>
+      <td>Ayoub@youcode.ma</td>
+      <td>Accident and emergent</td>
+      <td>
+      <div class="btn-group" >
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-pencil"> Edit</i></button>    
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
+    <button class="btn btn-primary btn-bg btn-md btn-md m-1 rounded "><i class="bi bi-trash"> Remove</i></button>    
+</div>
+
+    </td>
+    </tr>
+    <tr>
+      <td>Ghita BAHAJ</td>
+      <td>Ghita@youcode.ma</td>
+      <td>Endocrinologie</td>
+      <td>
+      <div class="btn-group" >
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-pencil"> Edit</i></button>    
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded "><i class="bi bi-eye"> View</i></button>    
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
+</div>
+
+    </td>
+    </tr>
+    <tr>
+      <td>Abdellah EL GHOULAM</td>
+      <td>Abdellah@youcode.ma</td>
+      <td>Médecine interne</td>
+      <td>
+      <div class="btn-group" >
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-pencil"> Edit</i></button>    
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-eye"> View</i></button>    
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded"><i class="bi bi-trash"> Remove</i></button>    
+
+</div>
+   
+    -->
+    <!-- <tr>
+      <td>2</td>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+  </tbody>
+</table>
+</div> 
             <!-- <div class="container-fluid px-4" id="container">
                 <div id="dashboardContainer">
                     <form>
