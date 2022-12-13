@@ -69,44 +69,31 @@ class Appointment{
             return $exp->getMessage();
         }
     }
-    public function readById($id){
-        try{
-            $conn=  new dbconnect();
-            $db=$conn->connect_pdo();
-            $req="SELECT * from `appointement` WHERE Id='$id'";
-            $result=$db->query($req);
-            return $result;
-        }catch(Execption $exp){
-            return $exp->getMessage();
-        }
-    }
 
     public function update(){
         try{
             $conn= new dbconnect();
-        $db=$conn->connect_pdo();
-        $req=$db->prepare("Update `appointement` SET `description`=?,`dateA`=?,`codePatient`= ?,`codeSession`=? WHERE appointment.id=?");
-        $resultat=$req->execute(array($this->id,$this->description,$this->date,$this->codePatient,$this->codeSession));
-        return $result;
-    }catch(Execption $exp){
-            return $exp->getMessage();
-        }  
+            $db=$conn->connect_pdo();
+            $req=$db->prepare("Update `appointement` SET `description`=?,`dateA`=?,`codePatient`= ?,`codeSession`=? WHERE appointement.id=?");
+            $result=$req->execute(array($this->description,$this->date,$this->codePatient,$this->codeSession,$this->id));
+            return $result;
+        }catch(Execption $exp){
+                return $exp->getMessage();
+            }  
     }
 
-    // public function delete(){
-    //     try{
-    //         $conn= new dbconnect();
-    //         $db=$conn->connect_pdo();
-    //         $req=$db->prepare("DELETE * FROM `appointment` WHERE appointment.id=?");
-    //         $result=$req->execute(array($this->id));
-    //         return $result;
-    //     }catch(Execption $exp){
-    //         return $exp->getMessage();
-    //     }
+    public function delete(){
+        try{
+            $conn= new dbconnect();
+            $db=$conn->connect_pdo();
+            $req=$db->prepare("DELETE FROM `appointement` WHERE id=?");
+            $result=$req->execute(array($this->id));
+            return $result;
+        }catch(Execption $exp){
+            return $exp->getMessage();
+        }
         
-    // }
-
-
+    }
 }
 
 ?>
