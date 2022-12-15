@@ -34,6 +34,6 @@ function updateSession() {
 
 function deleteSession(id) {
   if (confirm("Are you sure you want to Delete?")) {
-    window.location.href = "/gestion-hospital/Controllers/script.php?session_id=" + id;
+    window.location.href = "/gestion-hospital/Session/SessionController.php?session_id=" + id;
   }
 } 
