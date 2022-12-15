@@ -63,7 +63,9 @@ else{
                 <input type="text" id="lastName" data-parsley-type="alphanum"	class="form-control mt-3" name="lastName" placeholder="lastName" required>
             
                 </div>
-
+            <div class="pd-3"><label for="exampleInputEmail1" class="form-label">icon</label>
+            <input type="text" class="form-control" id="icon" name="icon"></div>
+                
             <div class="pb-3">
                 <label for="cin_inpt" id="cinLabel">Numero Télephone</label>
                 <input type="Number" id="NumeroTelephone" data-parsley-type="alphanum" 
