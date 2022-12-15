@@ -1,5 +1,5 @@
 <?php
-include "../Classes/User.php";
+include "../user/User.php";
 
 class Patient extends User
 {
