@@ -1,5 +1,5 @@
 <?php
-include "../user/User.php";
+include (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Classes\user\User.php');
 
 class Patient extends User
 {
