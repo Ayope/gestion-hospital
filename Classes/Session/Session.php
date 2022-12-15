@@ -60,29 +60,29 @@ class Session {
      }
 
 	//Insertion d'une session
-	public static function create($session) {
+	public function create() {
 		$database = new Dbconnect();
 		$bdd = $database->connect_pdo();
 		$req = $bdd->prepare("INSERT INTO session(dateDebut,dateFin,title,maxNumber,codeDoctor)VALUES(:dateDebut,:dateFin,:title,:maxNumber,:codeDoctor)")or die(print_r($bdd-> errorInfo()));
-		$req->bindParam(':dateDebut', $session->dateDebut);
-		$req->bindParam(':dateFin',$session->debutFin);
-		$req->bindParam(':title',$session->title);
-		$req->bindParam(':maxNumber',$session->maxNumber);
-		$req->bindParam(':codeDoctor',$session->codeDoctor);
+		$req->bindParam(':dateDebut', $this->dateDebut);
+		$req->bindParam(':dateFin',$this->debutFin);
+		$req->bindParam(':title',$this->title);
+		$req->bindParam(':maxNumber',$this->maxNumber);
+		$req->bindParam(':codeDoctor',$this->codeDoctor);
 		$sessionI=$req->execute();
 		return ($sessionI);
     }
 
 	  //Modifier session
-	  public static function update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor) {
+	  public function update($id) {
 		$database = new Dbconnect();
 		$bdd = $database->connect_pdo();
 		$req = $bdd->prepare("UPDATE session SET dateDebut =:dateDebut, dateFin = :dateFin ,title = :title, maxNumber = :maxNumber, codeDoctor = :codeDoctor  WHERE id =:ID")or die(print_r($bdd-> errorInfo()));
-		$req->bindParam(':dateDebut', $dateDebut);
-		$req->bindParam(':dateFin',$dateFin);
-		$req->bindParam(':title',$title);
-		$req->bindParam(':maxNumber',$maxNumber);
-		$req->bindParam(':codeDoctor',$codeDoctor);
+		$req->bindParam(':dateDebut', $this->dateDebut);
+		$req->bindParam(':dateFin',$this->debutFin);
+		$req->bindParam(':title',$this->title);
+		$req->bindParam(':maxNumber',$this->maxNumber);
+		$req->bindParam(':codeDoctor',$this->codeDoctor);
 		$req->bindParam(':ID',$id);
 		$sessionU=$req->execute();
       	return ($sessionU);

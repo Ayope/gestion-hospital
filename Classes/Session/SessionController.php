@@ -54,7 +54,7 @@ function saveSession()
         print_r($_POST);
         $session=new Session($dateDebut,$dateFin,$maxNumber,$title,$codeDoctor);
        
-        $req=Session::create($session);
+        $req=$session->create();
 
         if ($req) {
             echo "great";
@@ -94,8 +94,8 @@ function updateSession()
         $dateFin = test_input($_POST["dateFin"]);
         $maxNumber = test_input($_POST["maxNumber"]);
         $codeDoctor =test_input( $_POST["codeDoctor"]);
-        
-        $req=Session::update($id,$dateDebut,$dateFin,$maxNumber,$title,$codeDoctor);
+        $session=new Session($dateDebut,$dateFin,$maxNumber,$title,$codeDoctor);
+        $req=$session->update($id);
         print_r($req);
         if ($req) {
             echo "great";
