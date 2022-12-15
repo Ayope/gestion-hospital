@@ -3,8 +3,6 @@ include '../../Classes/user/userScript.php';
 $info = User::getById();
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
-
-    
 }
 ?>
 <!DOCTYPE html>

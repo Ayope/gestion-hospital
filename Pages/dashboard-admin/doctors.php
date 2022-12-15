@@ -74,7 +74,7 @@ if($_SESSION['ROLE']!="admin"){
                     class=" list-group-item list-group-item-action bg-transparent second-text-color ">
                     <i class="bi bi-bandaid-fill me-2"></i>Patients
                 </button></a>
-                <a href="assets/backend/sessionLogOut.php"
+                <a href="../logout.php"
                     class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>
@@ -246,8 +246,7 @@ if($_SESSION['ROLE']!="admin"){
     <!-- /#page-content-wrapper -->
     <!-- TASK MODAL -->
     <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-		<form name="modalForm" action= "" method="POST">
-            <input type="hidden" name="id" value="">
+		<form name="modalForm" action= "" method="POST" enctype="multipart/form-data">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header heaader" >
@@ -256,40 +255,38 @@ if($_SESSION['ROLE']!="admin"){
 					</div>
 
 					<div class="modal-body boody">
-	
-                       
-
+                        <div class="mb-2">
+                            <label for="img_input">Image</label>
+                            <input type="file" class="form-control" name="img" id="img_inpt">
+                        </div>                        
                         <div class="mb-3">
-                            <label for="special_Inpt" class="fw-bold">First Name :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <label for="firstName_Inpt" class="fw-bold">First Name :</label>
+                            <input name="firstName" type="text" id="firstName_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
-                            <label for="gender_Inpt" class="fw-bold">Last Name : </label>
-                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+                            <label for="LastName_Inpt" class="fw-bold">Last Name : </label>
+                            <input name="LastName" type="text" id="LastName_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="gender_Inpt" class="fw-bold">Gender : </label>
                             <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
-                            <label for="gender_Inpt" class="fw-bold">Speciality : </label>
-                            <input name="gender" type="text" id="gender_Inpt" class="form-control" value="" required>
+                            <label for="prof_Inpt" class="fw-bold">Speciality : </label>
+                            <input name="prof" type="text" id="prof_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
-                            <label for="city_Inpt" class="fw-bold">Numero telephone : </label>
+                            <label for="city_Inpt" class="fw-bold">city : </label>
                             <input name="city" type="text" id="city_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
-                            <label for="special_Inpt" class="fw-bold">Email :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <label for="email_Inpt" class="fw-bold">Email :</label>
+                            <input name="email" type="text" id="email_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
-                            <label for="special_Inpt" class="fw-bold">Password :</label>
-                            <input name="speciality" type="text" id="special_Inpt" class="form-control" value="" required>
+                            <label for="pass_Inpt" class="fw-bold">Password :</label>
+                            <input name="password" type="text" id="pass_Inpt" class="form-control" value="" required>
 						</div>
-
-                        
-
 					</div>
 
 					<div class="modal-footer foooter" id = "modalFooter">

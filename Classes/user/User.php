@@ -14,16 +14,15 @@ class User{
 	protected $icon;
   protected $role;
 
-    //constructeur:
-	// protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
-	// 	$this->firstName= $firstName;
-	// 	$this->lastName= $lastName;
-	// 	$this->email=$email;
-	// 	$this->password= $password;
-  //       $this->NumeroTelephone= $NumeroTelephone;
-	// 	$this->icon= $icon;
-  //   $this->role= $role;
-	// }
+	protected function __construct($firstName,$lastName,$email,$password,$NumeroTelephone,$icon,$role) {
+		$this->firstName= $firstName;
+		$this->lastName= $lastName;
+		$this->email=$email;
+		$this->password= $password;
+        $this->NumeroTelephone= $NumeroTelephone;
+		$this->icon= $icon;
+    $this->role= $role;
+	}
 
   //les getters et setters:
   protected function getId() {
@@ -72,7 +71,7 @@ class User{
        $this->role=$role;
      }
 
-  public static  function login($email,$password){
+  public static function login($email,$password){
     $database = new Dbconnect();
     $db = $database->connect_pdo();
     $stmt= $db->prepare("SELECT * from user where email = '$email'");
@@ -108,50 +107,45 @@ class User{
 
    }
 
-
-   public static function signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone){
+   public function createUser(){
     $database = new Dbconnect();
-    $db = $database->connect_pdo(); 
-    $stmt= $db->prepare("SELECT * from user where email = '$email'");
+		$bdd = $database->connect_pdo();
+    $stmt= $bdd->prepare("SELECT * from user where email = ':email'");
+    $stmt->bindParam(':email',$this->email);
     $stmt->execute();
     $row = $stmt->fetch();
     if(!$row){
-      $stmt = $db->prepare("INSERT INTO user (`firstName`, `lastName`, `email`, `password`, `role`, `NumeroTelephone`) VALUES ('$firstName','$lastName','$email','$password','$role','$NumeroTelephone')");
-      $stmt->execute();
-    
-
-
-
-    }else{
-      $_SESSION['message']="email alredy exist";
-    }
-
-   }
-
-   public function createUser($user){
-    global $bdd;
+    echo "create User";
     $req = $bdd->prepare("INSERT INTO user(firstName,lastName,email,password,NumeroTelephone,icon,role)VALUES(:firstName,:lastName,:email,:password,:NumeroTelephone,:icon,:role)")or die(print_r($bdd-> errorInfo()));
-    $req->bindParam(':firstName', $user->firstName);
-    $req->bindParam(':lastName',$user->lastName);
-    $req->bindParam(':email',$user->email);
-    $req->bindParam(':password',$user->password);
-    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
-    $req->bindParam(':icon',$user->icon);
-    $req->bindParam(':role',$user->role);
+    $req->bindParam(':firstName', $this->firstName);
+    $req->bindParam(':lastName',$this->lastName);
+    $req->bindParam(':password',$this->password);
+    $req->bindParam(':NumeroTelephone',$this->NumeroTelephone);
+    $req->bindParam(':icon',$this->icon);
+    $req->bindParam(':email',$this->email);
+    $req->bindParam(':role',$this->role);
     $userI=$req->execute();
-    return ($userI);
+    if($userI){
+      echo "done";
+    }
+    return ($req);
+    
+  }else{
+    $_SESSION['message']="email alredy exist";
+  }
    }
-   public function updateUser($user){
-    global $bdd;
+   public function updateUser($id){
+    $database = new Dbconnect();
+		$bdd = $database->connect_pdo();
     $req = $bdd->prepare("UPDATE user SET firstName=:firstName,lastName=:lastName,email=:email,password=:password,NumeroTelephone=:NumeroTelephone,icon=:icon,role=:role WHERE id=:ID")or die(print_r($bdd-> errorInfo()));
-    $req->bindParam(':firstName', $user->firstName);
-    $req->bindParam(':lastName',$user->lastName);
-    $req->bindParam(':email',$user->email);
-    $req->bindParam(':password',$user->password);
-    $req->bindParam(':NumeroTelephone',$user->NumeroTelephone);
-    $req->bindParam(':icon',$user->icon);
-    $req->bindParam(':role',$user->role);
-    $req->bindParam(':ID',$user->id);
+    $req->bindParam(':firstName', $this->firstName);
+    $req->bindParam(':lastName',$this->lastName);
+    $req->bindParam(':email',$this->email);
+    $req->bindParam(':password',$this->password);
+    $req->bindParam(':NumeroTelephone',$this->NumeroTelephone);
+    $req->bindParam(':icon',$this->icon);
+    $req->bindParam(':role',$this->role);
+    $req->bindParam(':ID',$id);
     $userU=$req->execute();
     return ($userU);
    }

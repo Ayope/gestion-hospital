@@ -90,7 +90,8 @@ class Session {
 
 	 //Suppression d'une session
 	  public static function delete($ID) {
-		global $bdd;
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		$req = $bdd->prepare('Delete FROM session WHERE id = :id')or die(print_r($bdd-> errorInfo()));
 		$req->bindParam(':id',$ID);
 		$sessionD = $req->execute();
@@ -105,7 +106,8 @@ class Session {
       }
 	//la liste  des sessions de l'application:
 	public static function getAll() {
-		global $bdd;
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		$sql="SELECT * FROM session";
 		$all= $bdd->query($sql);
 		return ($all);
@@ -119,7 +121,17 @@ class Session {
 	}
     //recuperer le prenombre des sessions
 	public static function nbreSession(){
-		global $bdd;
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+		$sql="SELECT count(id) as nbre FROM session";
+		$pass = $bdd->query($sql);
+		return ($pass);
+	}
+
+
+	public static function nbreSessionToday(){
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
 		$sql="SELECT count(id) as nbre FROM session";
 		$pass = $bdd->query($sql);
 		return ($pass);

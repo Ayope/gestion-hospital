@@ -3,22 +3,46 @@
     
     include "./doctor.php";
 
-
+    
+    if(isset($_POST['saveDoc'])) addDoctor();
+    
     function addDoctor(){
-        // should create user first before doctor 
-        $database = new Dbconnect;
-        $db = $database->connect_pdo();//PDO Object
-
-
+        $firstName = $_POST['firstName'];
+        $LastName = $_POST['LastName'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];  
+        $role = 'doc';
         $city = $_POST['city'];
         $prof = $_POST['prof'];
         $gender = $_POST['gender'];
-        $codeUser = $_POST['codeUser'];
-        
-        $doctor = new Doctor($city, $prof, $gender, $codeUser);
 
+        if (isset($_FILES['icon']['name'])) {
+            $image_name = $_FILES['icon']['name'];
+            $tmp_name = $_FILES['icon']['tmp_name'];
+            $img_ex = pathinfo($image_name, PATHINFO_EXTENSION);
+            $img_ex_lc = strtolower($img_ex);
+            $allowed_exs = array("jpg", "jpeg", "png");
+
+            if (in_array($img_ex_lc, $allowed_exs)) {
+                $new_img_name = uniqid("doctor", true) . '.' . $img_ex_lc;
+                $img_upload_path = '../../image/doctor' . $new_img_name;
+                $upload = move_uploaded_file($tmp_name, '../' . $img_upload_path);
+                if ($upload == FALSE) {
+                    $_SESSION["error"] = "Sorry ,";
+                     echo "error image";
+                    die();
+                }
+            } else {
+                $_SESSION["error"] = "Sorry , you can't upload this type of files";
+                echo "Sorry , you can't upload this type of files";
+                die();
+            }
+        } else {
+            $img_upload_path = '../../image/doctor/default.jpg';
+        }
+        
+        $doctor = new Doctor($firstName,$lastName,$email,$password,$img_upload_path,$role,$gender,$city,$prof);
         $sql = $doctor->createDoctor();
-        $db->exec($sql);
 
         if($sql){
             echo "done inserting data";
@@ -29,9 +53,6 @@
         }
     }
 
-    if(isset($_POST['submit'])){
-        addDoctor();
-    }
 
 
     function showDoc(){
