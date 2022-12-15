@@ -99,6 +99,7 @@ function savePatient()
 
         if ($req) {
             echo "great";
+            header("Location: http://localhost/gestion-hospital/Pages/Dashboard-patient/dashboard.php");
             die();
         } else {
             echo "error accured";
