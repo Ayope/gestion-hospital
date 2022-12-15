@@ -1,8 +1,6 @@
 <?php
 include 'User.php'; 
 
-
-$user = new User;
 $info = User::getById();
 $countd = User::count("doc");
 $countp = User::count("pat") ;
@@ -19,20 +17,20 @@ function logIn(){
 }
 
 
-function signUp(){
-    $firstName = $_POST['firstname'];
-    $lastName = $_POST['lastname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $role = "pat";
-    $NumeroTelephone = $_POST['number'];
+// function signUp(){
+//     $firstName = $_POST['firstname'];
+//     $lastName = $_POST['lastname'];
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+//     $role = "pat";
+//     $NumeroTelephone = $_POST['number'];
 
 
    
 
-    User::signUp($firstName,$lastName,$email,$password,$role,$NumeroTelephone );
+//     User::;
 
-}
+// }
 
 
 
