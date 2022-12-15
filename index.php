@@ -7,7 +7,7 @@ if(isset($_SESSION['ROLE'])){
 if($_SESSION['ROLE']=="pat"){
     header('location: Pages/Dashboard-patient/dashboard.php');   
 }elseif($_SESSION['ROLE']=="admin"){
-    header('location: Pages/dashboard-admin/dashboard.php');   
+    header('location: Pages/dashboard-admin/pageAdmin/dashboard.php');   
 }elseif($_SESSION['ROLE']=="doc"){
     header('location: Pages/Dashboard-doctor/dashboard.php');   
 }else{
