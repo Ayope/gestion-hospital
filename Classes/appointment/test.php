@@ -27,7 +27,7 @@
 
 <body>
     <form class="container-fluid" method="post" action="" name="appointmentForm">
-      <input type="hidden" id="idHide" name="idHide">
+        <input type="hidden" id="idHide" name="idHide">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">date</label>
             <input type="date" class="form-control" id="date" name="date">
@@ -45,19 +45,36 @@
             <input type="number" class="form-control" name="cs" id="cs">
         </div>
         <div class="d-flex align-itmes-center justify-content-center">
-          <button type="submit" class="btn btn-primary" name="save_Appointment" id="save_Appointment">SAVE</button>
-          <button type="submit" class="btn btn-warning" name="update_Appointment" id="update_Appointment">EDIT</button>
+            <button type="submit" class="btn btn-primary" name="save_Appointment" id="save_Appointment">SAVE</button>
+            <button type="submit" class="btn btn-warning" name="update_Appointment"
+                id="update_Appointment">EDIT</button>
+        </div>
+    </form>
+    <form method="post">
+        <div class="px-2 py-5 d-flex justify-content-center d-grid gap-2">
+            <input type="search" class="form-control input-sm" placeholder="&#128270; Search by name" name="search"
+                id="search-input">
+            <button type="submit" class="btn btn-dark border-0"
+                style="padding: 5px 5px;width: 100px;text-align: center;cursor: pointer;" name="btn_search">
+                search</button>
         </div>
     </form>
     <div class="py-5 my-4">
         <table class=" table">
-            <th>id</th>
-            <th>description</th>
-            <th>dateA</th>
-            <th>code Patient</th>
-            <th>code session</th>
-            <th class="text-center">event</th>
-            <?php getAppointment(); ?>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>description</th>
+                    <th>dateA</th>
+                    <th>code Patient</th>
+                    <th>code session</th>
+                    <th class="text-center">event</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <?php getAppointment(); ?>
+            </tbody>
         </table>
     </div>
 

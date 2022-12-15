@@ -1,6 +1,6 @@
 <?php
 
-include '../../Config/db.php';
+// include "../../config/db.php";
 
 class Appointment{
     private $id;
@@ -94,6 +94,18 @@ class Appointment{
         }
         
     }
+
+    	public function countBooking(){
+            try{
+                $database = new Dbconnect();
+                $bdd = $database->connect_pdo();
+                $sql =$bdd->prepare("SELECT COUNT(*) AS nbre FROM appointement WHERE date=?");
+                $result=$sql->execute(array($this->date));
+		        return $result;
+            }catch(Execption $exp){
+                return $exp->getMessage();
+            }
+	}
 }
 
 ?>
