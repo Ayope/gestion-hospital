@@ -5,6 +5,7 @@ include "appointment.php";
 if(isset($_POST['save_Appointment'])) saveAppointment();
 if(isset($_POST['delete_appointment']))  deleteAppointment();
 if(isset($_POST['update_Appointment'])) updateAppointment();
+if(isset($_POST['btn_search'])) search();
 
 function saveAppointment(){
     $appointment= new Appointment();
@@ -59,4 +60,11 @@ function deleteAppointment(){
   $appointment->SetId($_POST['idHideAppointment']);
   $appointment->delete();
 }
+function countBookingToday(){
+    $appointment= new Appointment();
+    $appointment->setDate(date(Y-m-d));
+    $appointment->countBooking();
+}
+
+
 ?>
