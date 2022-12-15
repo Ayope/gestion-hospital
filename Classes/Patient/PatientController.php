@@ -1,7 +1,7 @@
 <?php
 //INCLUDE DATABASE FILE
-include ("../Config/db.php");
-include ("./Patient.php");
+include_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
+include (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Classes\Patient\Patient.php');
 //ROUTING
 if (isset($_POST['save_Patient']))        savePatient();
 if (isset($_POST['update_Patient']))      updatePatient();
@@ -18,7 +18,40 @@ function test_input($data)
 }
 
 // ********************************************Session**********************************************
+function getPatients(){
 
+    $req=Patient::getPatient();
+    foreach ($req as $row) {
+        $firstName = $row["firstName"];
+        $lastName =$row["lastName"];
+        $email = $row["email"];
+        $NumeroTelephone = $row["NumeroTelephone"];
+        $city =$row["city"];
+        $gender =$row["gender"];
+        $cin =$row["cin"];
+        $birthDay =$row["birthDay"];
+        $icon =$row["icon"];
+        $id =$row["codeUser"];
+        ?>
+
+<tr>
+      <td><?=$firstName ?></td>
+      <td><?=$lastName ?></td>
+      <td><?=$email ?></td>
+      <td>
+      <div class="btn-group" >
+
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded " onclick="editPatient(`<?=$id ?>`,`<?=$firstName ?>`,`<?=$lastName ?>`,`<?=$email ?>`,`<?=$NumeroTelephone ?>`,`<?=$city ?>`,`<?=$gender ?>`,`<?=$cin ?>`,`<?=$birthDay ?>`,`<?=$icon ?>`)"><i class="bi bi-pencil"> Edit</i></button>   
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="viewPatient(`<?=$firstName ?>`,`<?=$lastName ?>`,`<?=$email ?>`,`<?=$NumeroTelephone ?>`,`<?=$city ?>`,`<?=$gender ?>`,`<?=$cin ?>`,`<?=$birthDay ?>`)"><i class="bi bi-eye"> View</i></button>
+    <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="delete(`<?=$id?>`)"><i class="bi bi-trash"> Remove</i></button>    
+</div>
+
+
+    </td>
+    </tr>
+    <?php
+    }
+}
 
 function savePatient()
 {
@@ -60,7 +93,7 @@ function savePatient()
             $img_upload_path = 'Patients/default.jpg';
         }
         print_r($_POST);
-        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"Patient",$birthDay,$gender,$city,$cin);
+        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"pat",$birthDay,$gender,$city,$cin);
        
         $req=$patient->create();
 
@@ -78,9 +111,8 @@ function savePatient()
 function deletePatient()
 {
     //CODE HERE
-    $id = $_GET['session_id'];
-
-    $req=Session::delete($id);
+    $id = $_GET['patient_id'];
+    $req=Patient::delete($id);
 
     if (!$req) {
         echo "error";
@@ -136,7 +168,7 @@ function updatePatient()
             $img_upload_path = $img;
         }
         print_r($_POST);
-        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"Patient",$birthDay,$gender,$city,$cin);
+        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"pat",$birthDay,$gender,$city,$cin);
         $req=$patient->update($id);
         if ($req) {
             echo "great";
