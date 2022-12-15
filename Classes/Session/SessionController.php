@@ -1,7 +1,7 @@
 <?php
 //INCLUDE DATABASE FILE
-include ("../Config/db.php");
-include ("./Session.php");
+include_once (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
+include (realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Classes\Session\Session.php');
 //ROUTING
 if (isset($_POST['save_session']))        saveSession();
 if (isset($_POST['update_session']))      updateSession();

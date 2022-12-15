@@ -116,6 +116,12 @@ class Patient extends User
 		}
 	}
 
+	public static function getPatient(){
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+		$req = $bdd->query('SELECT * FROM user JOIN patient ON user.id=patient.codeUser') or die(print_r($bdd->errorInfo()));
+		return $req;
+	}
 	//Suppression d'une session
 	public static function delete($ID)
 	{
@@ -123,7 +129,7 @@ class Patient extends User
 		$bdd = $database->connect_pdo();
 		$query = parent::deleteUser($ID);
 		if ($query) {
-			$req = $bdd->prepare('Delete FROM patient WHERE id = :id') or die(print_r($bdd->errorInfo()));
+			$req = $bdd->prepare('Delete FROM patient WHERE codeUser = :id') or die(print_r($bdd->errorInfo()));
 			$req->bindParam(':id', $ID);
 			$patientD = $req->execute();
 			return ($patientD);

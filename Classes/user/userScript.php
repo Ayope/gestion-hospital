@@ -6,7 +6,6 @@ $countd = User::count("doc");
 $countp = User::count("pat") ;
 
 if(isset($_POST['login']))        logIn();
-if(isset($_POST['signup']))        signUp();
 function logIn(){
 
     $email = $_POST['email'];
