@@ -6,8 +6,6 @@ $show = User::getAllByRole("doc");
 
 if($_SESSION['ROLE']!="admin"){
     header('location: ../../index.php');
-
-    
 }
 ?>
 <!DOCTYPE html>
@@ -135,40 +133,34 @@ if($_SESSION['ROLE']!="admin"){
 <table class="table table-hover table-responsive ">
   <thead  class="bg-light"style="border-color:#0A76D8;">
     <tr>
-      <th scope="col">Doctor Name</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
       <th scope="col">Email</th>
-      <th scope="col">Spealities</th>
       <th scope="col">Events</th>
     </tr>
   </thead>
   <tbody>
-  <?php foreach ($show as $row) {
-                         $fname = $row['firstName'];
-                         $lname = $row['lastName'];
-                         $email = $row['email'];
-                         $numero = $row['NumeroTelephone'];
-                                         
-
-                        echo 
-                        "<tr>
-                         <td>$fname</td>
-                         <td>$lname</td>
-                         <td>$email</td>
-                         <td>
-      <div class='btn-group' >
-
-    <button class='btn btn-dark  btn-md m-1 rounded '><i class='bi bi-pencil'> Edit</i></button>   
-    <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-eye'> View</i></button>
-    <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-trash'> Remove</i></button>    
-</div>
-
-
-    </td>
-                         </tr>";
+    <?php foreach ($show as $row) {
+        $fname = $row['firstName'];
+        $lname = $row['lastName'];
+        $email = $row['email'];
+        $numero = $row['NumeroTelephone'];
                         
 
-
-                    } ?>
+        echo 
+        "<tr>
+            <td>$fname</td>
+            <td>$lname</td>
+            <td>$email</td>
+            <td>
+            <div class='btn-group' >
+                <button class='btn btn-dark  btn-md m-1 rounded '><i class='bi bi-pencil'> Edit</i></button>   
+                <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-eye'> View</i></button>
+                <button class='btn btn-dark  btn-md m-1 rounded'><i class='bi bi-trash'> Remove</i></button>    
+            </div>
+            </td>
+        </tr>";
+    } ?>
     <!-- <tr>
       <td>Nouhaila KHAOUTI</td>
       <td>Nouhaila@youcode.ma</td>
@@ -311,7 +303,8 @@ if($_SESSION['ROLE']!="admin"){
     <!-- END TASK MODAL-->
     
     <!--bootsrap js cdn link-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
