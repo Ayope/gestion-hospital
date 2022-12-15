@@ -60,7 +60,7 @@ function savePatient()
             $img_upload_path = 'Patients/default.jpg';
         }
         print_r($_POST);
-        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"Patient",$birthDay,$gender,$city,$cin);
+        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"pat",$birthDay,$gender,$city,$cin);
        
         $req=$patient->create();
 
@@ -136,7 +136,7 @@ function updatePatient()
             $img_upload_path = $img;
         }
         print_r($_POST);
-        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"Patient",$birthDay,$gender,$city,$cin);
+        $patient=new Patient($firstName,$lastName,$email,$password,$NumeroTelephone,$img_upload_path,"pat",$birthDay,$gender,$city,$cin);
         $req=$patient->update($id);
         if ($req) {
             echo "great";
