@@ -110,8 +110,8 @@ class User{
    public function createUser(){
     $database = new Dbconnect();
 		$bdd = $database->connect_pdo();
-    $stmt= $bdd->prepare("SELECT * from user where email = ':email'");
-    $stmt->bindParam(':email',$this->email);
+    $stmt= $bdd->prepare("SELECT * FROM user WHERE email = :email1");
+    $stmt->bindParam(':email1',$this->email);
     $stmt->execute();
     $row = $stmt->fetch();
     if(!$row){
