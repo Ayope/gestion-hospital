@@ -1,0 +1,32 @@
+User stories :
+
+Admin:
+- ajouter des médecins (spécialités - les détails du médecin - les informations d'identification du système)
+	-> les médecins ne peuvent pas creer leur compte eux meme (only log in)
+- modifier les médecins et les supprimer
+- Programmer les sessions des nouveaux médecins, supprimer les sessions
+- Voir les détails des patients (en forme de modal)
+- Voir les réservations des patients
+
+
+Medcin:
+- Visualiser les rendez-vous (organisera les horaires des rendez-vous de chaque patient,
+qui seront soumis comme une demande au médecin qu'ils ont choisi. )/supprimer un rendez vous.
+- Visualiser ou supprimer leurs séances programmées
+- Voir les détails des patients
+- Supprimer son compte & Modifier les paramètres du son compte.
+
+
+Pattients:
+- Prendre un rendez-vous en ligne /supprimer un rendez vous
+(Les patients navigueront sur le site Web du système de rendez-vous 
+des médecins pour trouver un médecin qui a la spécialité dont ils ont besoin)
+
+(Le patient peut consulter l'agenda hebdomadaire du médecin pour l'aider à choisir 
+le jour et l'heure auxquels il peut se rendre à son rendez-vous et soumettre sa demande de rendez-vous)
+
+- Créer des comptes eux-mêmes
+- Consulter leurs anciennes réservations
+- Supprimer son compte & Modifier les paramètres son compte.
+
+

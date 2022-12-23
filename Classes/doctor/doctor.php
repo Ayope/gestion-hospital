@@ -8,8 +8,8 @@
         private $profession;
         private $codeUser;
 
-        public function __construct($firstName,$lastName,$email,$password,$icon,$role,$gender,$city,$profession){
-            parent::__construct($firstName,$lastName,$email,$password,$icon,$role);
+        public function __construct($gender, $city, $profession, $codeUser){
+            // parent::__construct($firstName,$lastName,$email,$password,$icon,$role);
             $this->gender = $gender;
             $this->city = $city;
             $this->profession = $profession;
@@ -47,22 +47,8 @@
 
         //Doctor Crud
         public function createDoctor(){
-            $database = new Dbconnect;
-            $db = $database->connect_pdo();
-
-            $query = $this->createUser();
-            if($query){
-                $stmt = $db->query("SELECT LAST_INSERT_ID(id) from user order by LAST_INSERT_ID(id) desc limit 1;");
-                $codeUser = $stmt->fetchColumn();
-                $req = $bdd->prepare("INSERT INTO doctor (city, speciality, Gender, codeUser)
-                VALUES ('$this->city', '$this->profession', '$this->gender', '$codeUser')")
-                or die(print_r($db->errorInfo()));
-                $docIns = $req->execute();
-                return ($docIns);
-            }else{
-                return 0;
-            }
-
+            return  "INSERT INTO doctor (city, speciality, Gender, codeUser)
+            VALUES ('$this->city', '$this->profession', '$this->gender', '$this->codeUser')";
         }
         public static function readData(){
             return "SELECT * FROM doctor";
@@ -71,6 +57,9 @@
             return "UPDATE doctor
             SET city=:city, speciality=:speciality, Gender=:gender
             WHERE id=:id";
+        }
+        public function deleteDoctor(){
+
         }
         
         public function toString() {

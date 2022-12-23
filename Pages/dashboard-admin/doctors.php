@@ -246,7 +246,7 @@ if($_SESSION['ROLE']!="admin"){
     <!-- /#page-content-wrapper -->
     <!-- TASK MODAL -->
     <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-		<form name="modalForm" action= "" method="POST" enctype="multipart/form-data">
+		<form name="modalForm" action= "../../Classes/doctor/docScript.php" method="POST" enctype="multipart/form-data">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header heaader" >
@@ -265,7 +265,7 @@ if($_SESSION['ROLE']!="admin"){
 						</div>
                         <div class="mb-3">
                             <label for="LastName_Inpt" class="fw-bold">Last Name : </label>
-                            <input name="LastName" type="text" id="LastName_Inpt" class="form-control" value="" required>
+                            <input name="lastName" type="text" id="LastName_Inpt" class="form-control" value="" required>
 						</div>
                         <div class="mb-3">
                             <label for="gender_Inpt" class="fw-bold">Gender : </label>
@@ -291,7 +291,7 @@ if($_SESSION['ROLE']!="admin"){
 
 					<div class="modal-footer foooter" id = "modalFooter">
 						<button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-dark" id="save" name="saveChanges">Save changes!</button>
+						<button type="submit" class="btn btn-dark" id="save" name="saveDoc">Save changes!</button>
 					</div>
 				</div>
 			</div>	

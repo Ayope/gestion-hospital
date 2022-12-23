@@ -19,7 +19,7 @@ class User{
 		$this->lastName= $lastName;
 		$this->email=$email;
 		$this->password= $password;
-        $this->NumeroTelephone= $NumeroTelephone;
+    $this->NumeroTelephone= $NumeroTelephone;
 		$this->icon= $icon;
     $this->role= $role;
 	}
@@ -133,7 +133,7 @@ class User{
   }else{
     $_SESSION['message']="email alredy exist";
   }
-   }
+  }
    public function updateUser($id){
     $database = new Dbconnect();
 		$bdd = $database->connect_pdo();
