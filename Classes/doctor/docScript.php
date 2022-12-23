@@ -9,7 +9,6 @@
         $database = new Dbconnect;
         $db = $database->connect_pdo();//PDO Object
 
-
         $city = $_POST['city'];
         $prof = $_POST['prof'];
         $gender = $_POST['gender'];

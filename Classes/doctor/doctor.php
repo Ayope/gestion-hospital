@@ -56,9 +56,9 @@
         public static function updateDoctor(){
             return "UPDATE doctor
             SET city=:city, speciality=:speciality, Gender=:gender
-            WHERE id=:id"; //<- Documentation 
+            WHERE id=:id";
         }
-        public function deleteDoctor($id){
+        public function deleteDoctor(){
 
         }
         

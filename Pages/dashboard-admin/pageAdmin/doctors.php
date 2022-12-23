@@ -59,7 +59,7 @@
 
 
     </td>
-                         </tr>";
+    </tr>";
                         
 
 
@@ -70,7 +70,7 @@
  <!-- /#page-content-wrapper -->
  <!-- TASK MODAL -->
  <div class="modal fade" id="modal-task" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-     <form name="modalForm" action="" method="POST">
+     <form name="modalForm" action="../../../Classes/doctor/docScript.php" method="POST">
          <input type="hidden" name="id" value="">
          <div class="modal-dialog">
              <div class="modal-content">
@@ -81,8 +81,6 @@
                  </div>
 
                  <div class="modal-body boody">
-
-
 
                      <div class="mb-3">
                          <label for="special_Inpt" class="fw-bold">First Name :</label>
@@ -119,7 +117,7 @@
 
                  <div class="modal-footer foooter" id="modalFooter">
                      <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                     <button type="submit" class="btn btn-dark" id="save" name="saveChanges">Save changes!</button>
+                     <button type="submit" class="btn btn-dark" id="save" name="saveDoc">Save changes!</button>
                  </div>
              </div>
          </div>
